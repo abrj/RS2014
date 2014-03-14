@@ -1,0 +1,25 @@
+\section{Collaborative Recommendations}
+The main idea of this approach for recommendations, is to base the recommendations of items on similar users or similar items.\\
+This method of recommending is one of the most widely spread, as it is used both at Amazon, Netflix and similar high-value companies\marginpar{KILDE?}.\\
+In this secion, the different implementation techniques of CF recommender systems will be described and a list of pro's and cons, be giving towards the end. We will distinguish between what is known as user-item and user-user recommendations (KILDE). But before going is to these descriptions, a short section for the commons features will be explained\\
+
+\subsection{subsection name} % (fold)
+\label{sub:subsection_name}
+For both types of recommendations the basic problem can be formulated like this: For any given user and non-rated item pair, try to estimate the rating the user will give, for this item.\\
+The most common approach is therefore to define a user-item matrix as seen in the table below (insert a table here)
+% subsection subsection_name (end) 
+
+\subsection{user-user based recommendations} % (fold)
+\label{sub:user_user_based_recommendations}
+The approach described here are recommending on the basis of what is known as peer-users (also called neighbors), which means users that have similiar preferences in the past as the user the systems is trying to recommend items to. The idea then is, for the item n the user not yet have rated, find peer-users that have rated item n and based on the this, compute the rating for item n for the current user. This means that the job of the RS is to: 1) find peer-users with similiar taste to Alice and 2) take the rating for the item from the peer-users and based on this, predict the rating for the item for Alice.
+To illustrate this, we can return to our rating matrix in table XX. Here Alice have not rated item 4 and the task of the RS is then to predict the rating, based on the ratings of this item from peer-users, which is user2 and user4. 
+
+\subsubsection{Pearson correlation}
+
+% subsection user_user_based_recommendations (end) 
+
+\subsection{user-item based recommendations} % (fold)
+\label{sub:user_item_based_recommendations}
+
+% subsection user_item_based_recommendations (end)
+
