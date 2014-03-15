@@ -38,11 +38,27 @@ The above presentation of a recommeder systems is of course a very small example
 \label{sub:item_based_recommendations}
 Another technique of collaborative recommendations, called item-based, are in certain areas very similiar to user-based, but has some advantages in the sense of the large dataset an real-world application consists of today. The main idea of this approach is to calculate the similarity between items, instead of users, based on ratings for the items. If we want to compute the rating for item5 and we return to our matrix\todo{MATRIX}, we can see that the ratings given for item5, is close to the ratings given for both item2 and item4. Because of this similarity, we can say that: Since user A gave 4 to item2 and 3 to item4, and item5, item2 and item4 is similar in theirs ratings, a item-based recommender system we compute the average of these similar items ratings and give item5 a rating between 3 and 4. 
 In the following a description of one item-based algorithm will be presented. 
-% subsection user_item_based_recommendations (end)
-\subsubsection{Cosine similarity measure}
-In the previous sections, we looked at how item5 had similar ratings as item2 and item4. Because of a small dataset, it was possible to observe this similarity without any kind of calculations. It is rarely the case that this is possible in real-world applications and one of the methods for calculating this similarity is to use the cosine similarity measure
-\subsubsection{Data sparsity and cold start problem}
 
+\subsubsection{Cosine similarity measure}
+In the previous sections, we looked at how item5 had similar ratings as item2 and item4. Because of a small dataset, it was possible to observe this similarity without any kind of calculations. It is rarely the case that this is possible in real-world applications and one of the methods for calculating this similarity is to use the cosine similarity measure. Making a vector from each of the items, based on their ratings, this method uses the angle between the two vector for measuring of their similarity. The formula for calculating this angle is found below:
+
+\todo{INSERT COSINE SIM FORMULA + explanation of the formula}
+
+The cosine similarity values goes from -1, trough 0 and to 1, where 1 indicates a strong similarity between the two compared items, just like the Pearson method, as indicated on the picture below:
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{Pictures/cosinesimilarity.png}
+\caption{source: http://pyevolve.sourceforge.net/wordpress/?p=2497}
+\label{cosinesimilarity}
+\end{figure}
+
+Differently from the Pearson method, does the formula not take into account that users use a rating scale differently. \todo{maybe note the adjusted cosine measure her? p19}
+After the similiraty between the items have been calculated, the recommender system can predict a rating for user A's item5, based on the ratings for the items similar to item5. This prediction is done, using the formula below:
+\todo{INSERT prediction formula here. p20}
+
+\subsubsection{Data sparsity and cold start problem}
+% subsection user_item_based_recommendations (end)
 \subsection{Data preprocessing} % (fold)
 \label{sub:data_preprocessing}
 
