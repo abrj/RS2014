@@ -24,12 +24,26 @@ The similarity between user a and user b, giving the matrix \todo{mathematical{R
 \todo{INSERT PEARSON formula here}\\
 
 This will produce the similarity of user a and user b to be \todo{XXX}. This is a relativly high similarity and using the same formula for user a and user c, we also end up with a high similarity. It should be noted, that the formula takes into account that users tends to interpret a rating scale differently. Meaning that, some users tend to give a lot of high ratings, whereas other never rates anything with a 5. 
-Now that we have found to users (b and c), that have rated items similar to user a, we are able to proceed and predicting rating for the items, user a not yet have rated. 
+Now that we have found to users (b and c), that have rated items similar to user a, we are able to proceed and predicting rating for the items, user a not yet have rated. According to \todo{kilde til RS, an Introduction, p16} one possible way of making the prediction is based on this formula:\\
+
+\todo{Kilde til nearest neighbors formel}\\
+
+Based on these predictions, we are now able to fill out the rating matrix for user1 and making a list of top recommendations, based on this matrix. \\
+
+The above presentation of a recommeder systems is of course a very small example and in real world applications, the case of recommending is not a straight-forward as the method described here. The example just holds 4 users and 5 items, whereas real-world applications often contains tens of thousand or even millions of both items and users. As we will later present, a problem about data sparsicity with rating for items, is also a very present and problematic issue for recommendations systems. \todo{Problems with scalability} 
 
 % subsection user_user_based_recommendations (end) 
 
-\subsection{user-item based recommendations} % (fold)
-\label{sub:user_item_based_recommendations}
-
+\subsection{item based recommendations} % (fold)
+\label{sub:item_based_recommendations}
+Another technique of collaborative recommendations, called item-based, are in certain areas very similiar to user-based, but has some advantages in the sense of the large dataset an real-world application consists of today. The main idea of this approach is to calculate the similarity between items, instead of users, based on ratings for the items. If we want to compute the rating for item5 and we return to our matrix\todo{MATRIX}, we can see that the ratings given for item5, is close to the ratings given for both item2 and item4. Because of this similarity, we can say that: Since user A gave 4 to item2 and 3 to item4, and item5, item2 and item4 is similar in theirs ratings, a item-based recommender system we compute the average of these similar items ratings and give item5 a rating between 3 and 4. 
+In the following a description of one item-based algorithm will be presented. 
 % subsection user_item_based_recommendations (end)
+\subsubsection{Cosine similarity measure}
+In the previous sections, we looked at how item5 had similar ratings as item2 and item4. Because of a small dataset, it was possible to observe this similarity without any kind of calculations. It is rarely the case that this is possible in real-world applications and one of the methods for calculating this similarity is the \
+\subsubsection{Data sparsity and cold start problem}
 
+\subsection{Data preprocessing} % (fold)
+\label{sub:data_preprocessing}
+
+% subsection data_preprocessing (end)
