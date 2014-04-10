@@ -2,7 +2,7 @@
 %Model LaTeX file for Ph.D. thesis at the 
 %School of Mathematics, University of Edinburgh
 
-\documentclass[10pt]{report} 
+\documentclass[10pt, oneside]{report} 
 
 \title{Recommender Systems in use}
 \author{Postgraduate Student}
@@ -12,6 +12,7 @@
 \usepackage{color}
 \usepackage{graphicx}
 \usepackage{edmaths}
+\usepackage{newclude}
 
 
 \begin{document}
@@ -30,14 +31,17 @@ My abstract.
 
 \tableofcontents
 
-\chapter{First Chapter}
-\include{Part1/Collaborative/collaborative}
-\include{Part1/Content/content}
-\chapter{Second Chapter}
-\include{Part2/TechnologyAndValues/values}
-\chapter{Third Chapter}
+%Chapter 1 - Recommender systems
+\chapter{}
+\include*{Part1/Collaborative/collaborative}
+\include*{Part1/Content/content}
+%Chapter 2 - Values and technology
+\chapter{}
+\include*{Part2/TechnologyAndValues/values}
+%Chapter 3 - recommeder systems ITU
+\chapter{}
+\section*{Recommender system for courses at ITU}
 
-\chapter{Fourth Chapter}
 
 \appendix
 
