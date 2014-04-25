@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1398419127 "report.tex" "report.pdf" "report" 1398419128
+["pdflatex"] 1398428646 "report.tex" "report.pdf" "report" 1398428647
   "/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/etexcmds.sty" 1335995445 7612 c47308d923ec19888707b0f1792b326a ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifluatex.sty" 1303254447 7324 11d14f318d865f420e692d4e6c9c18c3 ""
@@ -41,17 +41,17 @@
   "/usr/local/texlive/2013/texmf-dist/tex/latex/pdftex-def/pdftex.def" 1306616590 55368 3c8a0d99822330f2dfabc0dfb09ce897 ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/setspace/setspace.sty" 1324344192 22913 a27d7908fc6f0385466454a966a316eb ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/tools/calc.sty" 1254151720 10075 18f0ccff816231e9905cd2b3a482a622 ""
-  "Part1/Collaborative/collaborative.tex" 1398410605 7712 7802509acae5bb45bfbd2c02f51050dd ""
+  "Part1/Collaborative/collaborative.tex" 1398428644 9022 eb78502d93509b77341d8fcbfeeae2d9 ""
   "Part1/Content/content.tex" 1396512913 11069 f8f0b85c7718cf2aba0755c811caa2d0 ""
-  "Part1/Hybrid/hybrid.tex" 1398418834 2102 b7618fe1a8464de6c78fd31e23260ce9 ""
+  "Part1/Hybrid/hybrid.tex" 1398427039 2517 f2799bc1258d55fe1e5cb7fec5bedd6d ""
   "Part2/TechnologyAndBiases/biases.tex" 1397726423 6769 eb9d3b2d2239d60fbfbdf667afef1836 ""
   "Part2/TechnologyAndValues/values.tex" 1397168225 10191 e0ac2361f77250d53f7205dfc3bff80f ""
   "Pictures/contentdescription.png" 1396512913 49540 ea3b72f53d0dd628c404fa58e80b3131 ""
   "Pictures/cosinesimilarity.png" 1394895805 36116 5be84646d4a8cb7179c88cc63fc4b0fe ""
   "edmaths.sty" 1394790991 7110 040f1b25344d8d1e5884cbffdf8c83b7 ""
-  "report.aux" 1398419128 7628 b3eb4e3b26fe0ba0c5ca865e4b0fdd00 ""
+  "report.aux" 1398428647 7773 5e4bedc340c7324d2f4bb9cb7f7bc194 ""
   "report.tex" 1398413044 973 9e7a92474a50af638d01268a659307f0 ""
-  "report.toc" 1398419128 2148 872bb50fb29af38d8e717be3d7b79614 ""
+  "report.toc" 1398428647 2227 65d0b003b92e0437fbb11491ea9e85a0 ""
   (generated)
   "*.aux"
   "Part1/Collaborative/collaborative.aux"
