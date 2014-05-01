@@ -1,9 +1,9 @@
-%!TEX root = .. /../report.tex
+%!TEX root = ../../report.tex
 \section{Collaborative Recommendations}
 \label{sub:basic_collaborative_recommendations}
 The main idea of this approach for recommendations, is to base the recommendations of items on similar users or similar items.\\
 This method of recommending is one of the most widely spread, as it is used both at Amazon, Netflix and similar high-value companies \todo{Kilde: Linden et al. 2003}.\\
-In this secion, the different implementation techniques of CF recommender systems will be described and a list of pro's and cons, be giving towards the end. We will distinguish between what is known as user-based and item-based recommendations \todo{Kilde: Recommender Systems, An Introduction}. But before going is to these descriptions, a short section for the commons features will be explained\\
+In this section, the different implementation techniques of CF recommender systems will be described and a list of pro's and cons, be giving towards the end. We will distinguish between what is known as user-based and item-based recommendations \todo{Kilde: Recommender Systems, An Introduction}. But before going is to these descriptions, a short section for the commons features will be explained\\
 
 For both types of recommendations the basic problem can be formulated like this: For any given user and non-rated item pair, try to estimate the rating the user will give, for this item.\\
 The most common approach is therefore to define a user-item matrix as seen in the table below \todo{insert a table here}
@@ -15,7 +15,7 @@ The most common approach is therefore to define a user-item matrix as seen in th
 % subsection ratings (end)
 \subsection{user-user based recommendations} % (fold)
 \label{sub:user_user_based_recommendations}
-The approach described here are recommending on the basis of what is known as peer-users (also called neighbors). This means users that have similiar preferences in the past as the user the systems is trying to recommend items to. The idea is, for the item n, which a user called Alice not yet have rated, find peer-users that have rated item n and based on the this, compute the rating for item n for the Alice. This means that the job of the RS is to: 1) find peer-users with similiar taste to Alice and 2) take the rating for the item from the peer-users and based on this, predict the rating for the item for Alice.
+The approach described here are recommending on the basis of what is known as peer-users (also called neighbors). This means users that have similar preferences in the past as the user the systems is trying to recommend items to. The idea is, for the item n, which a user called Alice not yet have rated, find peer-users that have rated item n and based on the this, compute the rating for item n for the Alice. This means that the job of the RS is to: 1) find peer-users with similar taste to Alice and 2) take the rating for the item from the peer-users and based on this, predict the rating for the item for Alice.
 To illustrate this, we can return to our rating matrix in matrix \(R\). Here Alice have not rated item 4 and the task of the RS is then to predict the rating for item 4, based on the ratings of this item from peer-users, which is user2 and user4. Most commonly the is done, using the Pearson correlation coefficient\todo{KILDE?}, which calculates the similarity between users.
 
 \subsubsection{Pearson correlation}
@@ -27,7 +27,7 @@ The similarity between user a and user b, giving the matrix \(R\) is defined as 
 \]
 
 
-This will produce the similarity of user a and user b to be \todo{XXX}. This is a relativly high similarity and using the same formula for user a and user c, we also end up with a high similarity. It should be noted, that the formula takes into account that users tends to interpret a rating scale differently. Meaning that, some users tend to give a lot of high ratings, whereas other never rates anything with a 5. 
+This will produce the similarity of user a and user b to be \todo{XXX}. This is a relatively high similarity and using the same formula for user a and user c, we also end up with a high similarity. It should be noted, that the formula takes into account that users tends to interpret a rating scale differently. Meaning that, some users tend to give a lot of high ratings, whereas other never rates anything with a 5. 
 Now that we have found two users (b and c), that have rated items similar to user a, we are able to proceed and predict rating for the items, user a not yet have rated. According to \todo{kilde til RS, an Introduction, p16} one possible way of making the prediction is based on this formula:\\
 
 \[
@@ -36,7 +36,7 @@ Now that we have found two users (b and c), that have rated items similar to use
 
 Based on these predictions, we are now able to fill out the rating matrix for user a and making a list of top recommendations, based on this matrix. \\
 
-The above presentation of a recommeder systems is of course a very small example and in real world applications, the case of recommending is not a straight-forward as the method described here. The example just holds 4 users and 5 items, whereas real-world applications often contains tens of thousand or even millions of both items and users, which was the case for the Netflix problem\todo{kilde netflix problem}. As we will later present, a problem about data sparsicity with rating for items, is also a very present and problematic issue for recommendations systems. \todo{Problems with scalability} 
+The above presentation of a recommender systems is of course a very small example and in real world applications, the case of recommending is not a straight-forward as the method described here. The example just holds 4 users and 5 items, whereas real-world applications often contains tens of thousand or even millions of both items and users, which was the case for the Netflix problem\todo{kilde netflix problem}. As we will later present, a problem about data sparsity with rating for items, is also a very present and problematic issue for recommendations systems. \todo{Problems with scalability} 
 
 % subsection user_user_based_recommendations (end) 
 
@@ -64,7 +64,7 @@ The cosine similarity values goes from -1, trough 0 and to 1, where 1 indicates 
 \end{figure}
 
 Differently from the Pearson method, the formula does not take into account that users use a rating scale differently. \todo{maybe note the adjusted cosine measure her? p19}
-After the similiraty between the items have been calculated, the recommender system can predict a rating for user a's item5, based on the ratings for the items similar to item5. This prediction is done, using the formula below:
+After the similarity between the items have been calculated, the recommender system can predict a rating for user a's item5, based on the ratings for the items similar to item5. This prediction is done, using the formula below:
 
 \[
 	pred(u,p) = \frac{\sum_{i\in ratedItems(u)} sim(i,p) * r_{u,i}}{\sum_{i \in ratedItems(a)} sim(i,p)}
@@ -72,7 +72,13 @@ After the similiraty between the items have been calculated, the recommender sys
 
 \subsubsection{Data sparsity and cold start problem}
 % subsection user_item_based_recommendations (end)
-\subsection{Data preprocessing} % (fold)
-\label{sub:data_preprocessing}
+\todo{section: Data preprocessing}
 
-% subsection data_preprocessing (end)
+\subsection{Advantages and disadvantages}
+According to \todo{kilde: Recommender systems, an introduction} collaborative recommender systems is one of the most researched techniques of the two and because of this many different types of collaborative recommendations exists, as described in the above. Even with many different types, it is possible to outline some common advantages and disadvantages, which we be done in this section. Firstly, collaborative filtering can work independent of the items the system holds, since it uses ratings to recommender from, as opposed to content-based, which requires the item to have some content that can be compared \todo{kilde The next generation of recommender system, p18(nederst)}. 
+\todo{more advantages?}
+Likewise with content-based recommender method, the collaborative method do also have some disadvantages, or more correct, some challenges, described here as: New user problem, new item problem and data sparsity. 
+\begin{itemize}
+	\item New users are both problem for both methods, since both relies on some previous history about the users. In order for a recommender system to make recommendations for a user, the system must know something about the user preferences, which is historic ratings in a collaborative system. 
+	\item New items are frequently being added to a systems 'inventory'. This creates a challenge for a collaborative based recommender system, since it relies upon ratings for the items it recommends, and which it obviously does not have for new items.  
+\end{itemize}
