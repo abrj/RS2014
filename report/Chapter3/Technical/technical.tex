@@ -1,3 +1,74 @@
 %!TEX root = ../../report.tex
 \section{Technical}
 Collaborative vs Content
+
+\subsection{Content}
+
+\subsubsection{Data on students}
+First step is to divide up the students into the groups where they belong, using the first five student data points.
+
+- Education
+- Track
+- Semester (Bachelor students can only choose an elective course on 4th and 5th semester) (Masters students can choose an elective course on each semester (4th is only their thesis))
+- ECTS points earned
+- Nationality
+
+Only when the students have been divided up into groups is where the recommender system will go to work. By analyzing the next student data points the RS will recommend elective courses to the students in question.
+
+(which courses has the student already had, (DO NOT TAKE COURSE AND EXAM DATES INTO CONSIDERATION (AMAZON DOES NOT DECIDE WHETHER SOMETHING IS TOO EXPENSIVE FOR ME OR WHETHER I NEED THAT, THAT IS UP TO THE INDIVIDUAL TO DECIDE, THE SAME APPLIES HERE)))
+
+- Grades (only in relation to elective courses?)
+- Previous grades (all courses are available to all students that meets the formal requirements) (just because you get a low grade on a previous course does not necessarily makes that person less interested in a course where that previous course is a pre-requisite)
+- Previous courses (mandatory) and projects
+- Previous elective courses (could be a sign of interest)
+- Age (when you have been accepted to ITU you are in and can freely choose which courses you wish to attend no matter of age - we do not want to implement any bias into the system)
+- Current courses (to make sure that the recommended elective course is not time wise placed on top of on of the mandatory courses)
+
+The last two student data point serves as contact information (name is also used to refer to the above mentioned data points).
+ 
+- Name
+- Mail
+- 
+
+\subsubsection{Course information}
+
+- Name
+- ECTS
+- Which semester
+- Course code
+- Course language
+- Max seats
+- Current number of taken seats
+- Formal requirements
+- Course learning goals
+- Academic content
+- Mandatory activities
+- Exam forms (date and description)
+- Litterature
+- Curricullum
+- Course responsible/manager
+- Relevant for
+- Time and place
+
+
+
+
+\subsubsection{Recommender system output}
+
+- Max seats in recommended course
+- Current number os seats taken in recommended course
+- NOTE: please check that the recommended courses are not colliding with your mandatory or other elective courses
+- 
+
+
+
+
+FIND INFORMATION THAT DESCRIBES HOW A CONTENT ANALYZER, PROFILE LEARNER AND FILTERING COMPONENT ARE 
+
+MAKE NEW DRAWING SHOWING THE INFORMATION FLOW WITHIN THE SYSTEM BOTH FOR CONTENT-BASED AND COLLABORATIVE
+
+
+
+IF COLLABORATIVE BASED (ALWAYS RATING BASED): USER-USER OR ITEM-ITEM
+
+It will be a choice between what the course contain (can't really be shown from the users ratings of the course, since two courses can be completely different in regard to content, but have the same overall ratings) and how popular the course is (can be shown by the ratings, but will be a problem with new courses). Only about 40 percent of students are rating their courses via the course evaluation.
