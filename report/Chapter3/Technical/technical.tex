@@ -1,9 +1,32 @@
 %!TEX root = ../../report.tex
 \section{Technical}
+
+\subsection{Introduction}
+Motivation for making a RS for ITU
+
+\subsection{Domain Description}
+What domain are we in? Description of special words. Explanation of the different educations/track/etc
+
+\subsection{Design Choices}
 Collaborative vs Content
+Target group?
 
-\subsection{Content}
+\subsection{Data Modelling}
+ER-Diagram
 
+\subsection{Architecture Analysis}
+Flow of the program
+Picture of package diagram/components
+
+\subsection{Glossary}
+
+\subsection{ITU Recommender System}
+Profile Learner
+Content Analyzer
+Filtering Component
+
+
+%#############% 
 \subsubsection{Data on students}
 First step is to divide up the students into the groups where they belong, using the first five student data points.
 
@@ -33,25 +56,33 @@ The last two student data point serves as contact information (name is also used
 \subsubsection{Course information}
 
 - Name
-- ECTS
+- ECTS (should be included, so a student with only 7,5 etcs available, will not be recommended courses with 15 etcs)
 - Which semester
 - Course code
 - Course language
 - Max seats
 - Current number of taken seats
-- Formal requirements
-- Course learning goals
-- Academic content
-- Mandatory activities
-- Exam forms (date and description)
-- Litterature
-- Curricullum
-- Course responsible/manager
-- Relevant for
-- Time and place
+- Formal requirements (to vaguely defined in order to extract proper information)
+- Course learning goals (not important)
+- Academic content (this is here the keywords are extracted for the recommender system)
+- Mandatory activities (not important)
+- Exam forms (date and description) (the student must check if exam dates collide)
+- Litterature (not important)
+- Curricullum (not important)
+- Course responsible/manager (not important)
+- Relevant for (needs to properly defined, but is usefull)
+- Time and place (it is the students responsible to check if courses collide)
 
 
+\subsubsection{Persistence vs memory}
+even though the program only will run 2-3 times per year, perstiente the data to a database is needed. One could simpy keep the data in memory, but then it would be needed to 'reprofile' all students and analyse the content for each course, for each run of the program. When perstiente the data, the program 'only' needs to compare the new data with the previous created profiles and the content for the courses.
 
+\subsubsection{List of Requirements}
+\begin{itemize}
+	\item The list of possible courses for each student, must NOT contain mandatory courses or courses the student already have had.
+	\item Der skelnes mellem tilmeldte og tidligere tilmeldte kurser, i forhold til bestået kurser, for at undgå at man bliver anbefalet kurser, som man er igang med på tidspunktet hvor anbefalingen falder. 
+\end{itemize}
+  
 
 \subsubsection{Recommender system output}
 
@@ -72,3 +103,5 @@ MAKE NEW DRAWING SHOWING THE INFORMATION FLOW WITHIN THE SYSTEM BOTH FOR CONTENT
 IF COLLABORATIVE BASED (ALWAYS RATING BASED): USER-USER OR ITEM-ITEM
 
 It will be a choice between what the course contain (can't really be shown from the users ratings of the course, since two courses can be completely different in regard to content, but have the same overall ratings) and how popular the course is (can be shown by the ratings, but will be a problem with new courses). Only about 40 percent of students are rating their courses via the course evaluation.
+\subsubsection{Discussion}
+The system is requiring feedback from users. The only feedback available is on previous selected courses, which is not a lot. But this is in general a problem for many recommender systems, the lack of feedback from users, being both ratings and content-feedback. 
