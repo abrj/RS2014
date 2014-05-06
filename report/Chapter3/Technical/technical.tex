@@ -34,15 +34,20 @@ NOTE: A key thing to note here are the distinguishing between the popularity of 
 As part of the design process, it is necessary to look at the usage of the system, in order to choose if data should be read into memory at run-time when needed or a more persistent choice of data storage is needed. The answer to a question like this is closely related to when and how often the system is running. If the recommendations are needed many times daily or weekly, the choice would be to have the system running on a server, with a database taking routines backup of things like the different users profiles and recommendations. If the the system only would run a couple of times a month or year, one option would be to load all the raw data into the system for each run. Even if this process would be expensive to perform, it is easy to argument this being okay, since the data would only be used a few times and could be loaded in before actually needing it. Another option would be to load the raw data into the system on the first run, stripping it for unecessary information and then storing this data in a database and then just only update this database with new data, before each run. This latter option have been the chosen solution, since it enables the system to spend less time reprofiling all students for each run. It is only necessary to profile new students and courses. This should in theory reduce the time needed to calculating the recommendations.
 
 NOTES:
-even though the program only will run 2-3 times per year, perstiente the data to a database is needed. One could simpy keep the data in memory, but then it would be needed to 'reprofile' all students and analyse the content for each course, for each run of the program. When perstiente the data, the program 'only' needs to compare the new data with the previous created profiles and the content for the courses.
+even though the program only will run 2-3 times per year, perstiente the data to a database is needed. One could simpy keep the data in memory, but then it would be needed to 'reprofile' all students and analyse the content for each course, for each run of the program. When persisting the data, the program 'only' needs to compare the new data with the previous created profiles and the content for the courses.
 
 
 Target group?
 Tidsplan?
 Persistence or memory?
 % 0.5-1 page
-\subsection{Data Modelling}
-ER-Diagram
+\subsection{Data Modeling}
+Following the section \todo{ref til persistent section} a analysis of the data for ITU, including information about students and courses, was needed. This analysis are then devised into a model of data, which we have chosen to represent using a ER-diagram. This is useful for further discussions and improvement of the system, but can also serve as inspiration for the classes and objects needed at the programmatic abstraction layer. 
+
+\subsubsection{ER-Diagram}
+The ER-diagram following below reflects our considerations and reflections about how to represent the selected data in relational database. At the time of writing, where no real implementation has taken place, this diagram reflects the bare minimum required for the development of the system. The reason for not including the rest, is that this is best done with a agile and iterative development process, which have not been possible to engage in due to a time-constraint. It represents the results of the data selection process, which have been about prioritizing the available data from ITU in to the relevant data for the system, which have meant we have excluded some non-needed information attributes.
+
+\todo{INSERT ER-diagram} 
 
 % 0.5-1 page
 \subsection{Architecture Analysis}
