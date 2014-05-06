@@ -24,9 +24,10 @@ What domain are we in? Description of special words. Explanation of the differen
 In this section explanations of the design choices made throughout the design process will be presented aswell as the 'consequences' of choosing the different solutions. 
 \subsubsection*{Collaborative vs Content}
 One of the first and most important choices made for this system, is of course what kind of recommendation type of system, that should be developed. In section \todo{ref til chapter 1} we outlined three different kinds of types of recommeder systems: Collaborative-filtering (CF), Content-based (CT) and Hybrid approaches. As also explained in \todo{ref til chapter 1/section} the two first types somewhat represents extremes and it is most common to use a hybrid of the two. To keep the system as simple as possible for a start, the approach chosen is the content-based one. The reasons for this, will be outlined below. \\
-The CF approach mostly builds upon ratings from users, which is used to either compare users with users or items with items, and then produce a list of recommendations. This makes the ratings a central and crucial part of the system. In order to implement this approach for a ITU recommender systems, these ratings could come from the course evaluation, which basically asks the students to 'rate' and comment on both the course and teacher. 
+The CF approach mostly builds upon ratings from users, which is used to either compare users with users or items with items, and then produce a list of recommendations. This makes the ratings a central and crucial part of the system. In order to implement this approach for a ITU recommender systems, these ratings could come from the course evaluation, which basically asks the students to 'rate' and comment on both the course and teacher. This could definitely be a viable solution, except that it relies a great deal upon the data from the course evaluation. Unfortunately the evaluation is only done by around 35-40\% students, which means the system will be affected of the things described as the 'Data sparsity' problem in section \todo{ref til data sparsity}. 
 Target group?
 Tidsplan?
+Persistence or memory?
 % 0.5-1 page
 \subsection{Data Modelling}
 ER-Diagram
