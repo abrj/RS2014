@@ -31,6 +31,11 @@ The primary reason for choosing the CT approach is the availability of keyword f
 NOTE: A key thing to note here are the distinguishing between the popularity of a course (rating) and the content of a course (keyword).
 
 \subsubsection{Persistent or memory?}
+As part of the design process, it is necessary to look at the usage of the system, in order to choose if data should be read into memory at run-time when needed or a more persistent choice of data storage is needed. The answer to a question like this is closely related to when and how often the system is running. If the recommendations are needed many times daily or weekly, the choice would be to have the system running on a server, with a database taking routines backup of things like the different users profiles and recommendations. If the the system only would run a couple of times a month or year, one option would be to load all the raw data into the system for each run. Even if this process would be expensive to perform, it is easy to argument this being okay, since the data would only be used a few times and could be loaded in before actually needing it. Another option would be to load the raw data into the system on the first run, stripping it for unecessary information and then storing this data in a database and then just only update this database with new data, before each run. This latter option have been the chosen solution, since it enables the system to spend less time reprofiling all students for each run. It is only necessary to profile new students and courses. This should in theory reduce the time needed to calculating the recommendations.
+
+NOTES:
+even though the program only will run 2-3 times per year, perstiente the data to a database is needed. One could simpy keep the data in memory, but then it would be needed to 'reprofile' all students and analyse the content for each course, for each run of the program. When perstiente the data, the program 'only' needs to compare the new data with the previous created profiles and the content for the courses.
+
 
 Target group?
 Tidsplan?
@@ -110,8 +115,6 @@ The last two student data point serves as contact information (name is also used
 - Time and place (it is the students responsible to check if courses collide)
 
 
-\subsubsection{Persistence vs memory}
-even though the program only will run 2-3 times per year, perstiente the data to a database is needed. One could simpy keep the data in memory, but then it would be needed to 'reprofile' all students and analyse the content for each course, for each run of the program. When perstiente the data, the program 'only' needs to compare the new data with the previous created profiles and the content for the courses.
 
 \subsubsection{List of Requirements}
 \begin{itemize}
