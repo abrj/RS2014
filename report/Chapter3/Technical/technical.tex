@@ -12,15 +12,21 @@ A recommender system can be seen in many forms and be found many places, as desc
 
 % 0.5-1 page
 \subsection{Domain Description}
-In order to design the system it is needed to explore the domain in which the system needs to be designed. To get an overview of this, this section will be used to explain the different terms which is used and explanation of what kind of educations the university offers students. 
-To start at the highest level, the educations is divided into 3 sections: Bachelor, Master and Diploma. Both the Bachelor and Master are fulltime studies, whereas the Diploma is targeted for people already working and wants to complement or upgrade their education. There is three types of bachelors tracks: Global Business Informatics (BGBI), Software Development (BSWU) and Digital Media and Design (BDMD). The Masters are divided into: Digital Innovation \& Management, Digital Design \& Communication, Software Development and Technology and Games. 
+In order to design the system it is needed to explore the domain in which the system needs to be designed. To get an overview of this, this section will be used to explain the different terms which is used and explanation of what kind of educations the university offers students. Some works used here will be domain specific, but will be explained in the Glossary found in Appendix \todo{REF TIL GLOSSARY}
+To start at the highest level, the educations is divided into 3 sections: Bachelor, Master and Diploma. Both the Bachelor and Master are fulltime studies, whereas the Diploma is targeted for people already working and wants to complement or upgrade their education. There is three types of bachelors tracks: Global Business Informatics (BGBI), Software Development (BSWU) and Digital Media and Design (BDMD). The Masters are divided into: Digital Innovation \& Management, Digital Design \& Communication, Software Development and Technology and lastly Games. Under the Masters different tracks (also called spezialations) can be chosen, but these will most likely not be taken into considerations in the system, and therefore not explained here. The Dimploma is designed to be a part time education, with single elective courses. Also here, it is possible to choose tracks, but like the Masters, will these not be explained. 
+A bachelor education consists of 180 ECTS points, a Master on 120 ECTS points and Diploma 60 ECTS points. Since the Bachelors consists of many mandatory courses, not a lot of ECTS points a available for elective courses. The direct opposite is the case for the Masters. Here most of the 120 ECTS points are elective, which is the same for the Diploma. 
+The different people associated with ITU can be divided into three groups: Students, Researchers and Staff. The most interesting group is of course the students, since this in this group, the recommendations will be targeted. This group can be further divided into full- and part-time students. Most people on the Bachelors and Masters are full-time whereas a small part of Masters aswell as all people on Diploma er part-time, for different reasons. 
+The three types of educations all have elective courses, but the the Masters have more 
 What domain are we in? Description of special words. Explanation of the different educations/track/etc
 
 % 1-2 page
 \subsection{Design Choices}
-Collaborative vs Content
+In this section explanations of the design choices made throughout the design process will be presented aswell as the 'consequences' of choosing the different solutions. 
+\subsubsection*{Collaborative vs Content}
+One of the first and most important choices made for this system, is of course what kind of recommendation type of system, that should be developed. In section \todo{ref til chapter 1} we outlined three different kinds of types of recommeder systems: Collaborative-filtering (CF), Content-based (CT) and Hybrid approaches. As also explained in \todo{ref til chapter 1/section} the two first types somewhat represents extremes and it is most common to use a hybrid of the two. To keep the system as simple as possible for a start, the approach chosen is the content-based one. The reasons for this, will be outlined below. \\
+The CF approach mostly builds upon ratings from users, which is used to either compare users with users or items with items, and then produce a list of recommendations. This makes the ratings a central and crucial part of the system. In order to implement this approach for a ITU recommender systems, these ratings could come from the course evaluation, which basically asks the students to 'rate' and comment on both the course and teacher. 
 Target group?
-
+Tidsplan?
 % 0.5-1 page
 \subsection{Data Modelling}
 ER-Diagram
@@ -32,7 +38,15 @@ Picture of package diagram/components
 
 % ? page
 \subsection{Glossary}
-
+\begin{itemize}
+	\item[ECTS points] 
+	\item[SWU]
+	\item[GBI]
+	\item \todo{more?}
+	\item[CF] Collaborative-Filtering approach
+	\item[CT] Content-based approach
+	\item[Course evaluation]
+\end{itemize}
 % 1-2 page
 \subsection{ITU Recommender System}
 Profile Learner
