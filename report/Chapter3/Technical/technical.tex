@@ -1,9 +1,86 @@
 %!TEX root = ../../report.tex
+
+ 
 \section{Technical}
-Collaborative vs Content
 
-\subsection{Content}
+% 0.5 page
+\subsection{Introduction}
+As a part of the VSD framework, a technical part of the recommender system is required. In this chapter of the report, a focus will therefore be on the actual domain where the system is to be implemented, the technological choices taken for the systems. This will be done with the chosen values from the conceptual section in mind and grounded in these values. 
+The section are divided in to two parts. The first will be an analysis, whereas the second will focus upon the implementation and challenges for doing so. 
+A recommender system can be seen in many forms and be found many places, as described in section \todo{ref til section}. For this report, a recommender system for courses at the IT University, will be conceived. The reason for this, is that all full-time students are faced with one or more options for non-mandatory courses throughout their education. This can, for some students, be hard to do, because of the many courses available as well as the lack of transparency of the content for each of these courses.\\
 
+The intuition for the system can be divided in to three basic step. The first is some sort of data extraction from the systems at ITU, that holds the data needed to make a recommendation. The second step is to prioritize this data and select only the relevant. The third step is to process the selected data and transform this into some sort of structure holding students and courses and thereby constructing the recommendations for every student.
+
+
+% 0.5-1 page
+\subsection{Domain Description}
+In order to design the system it is needed to explore the domain in which the system needs to be designed. To get an overview of this, this section will be used to explain the different terms which is used and explanation of what kind of educations the university offers students. Some works used here will be domain specific, but will be explained in the Glossary found in Appendix \todo{REF TIL GLOSSARY}
+To start at the highest level, the educations is divided into 3 sections: Bachelor, Master and Diploma. Both the Bachelor and Master are full time studies, whereas the Diploma is targeted for people already working and wants to complement or upgrade their education. There is three types of bachelors tracks: Global Business Informatics (BGBI), Software Development (BSWU) and Digital Media and Design (BDMD). The Masters are divided into: Digital Innovation \& Management, Digital Design \& Communication, Software Development and Technology and lastly Games. Under the Masters different tracks (also called specializations) can be chosen, but these will most likely not be taken into considerations in the system, and therefore not explained here. The Diploma is designed to be a part time education, with single elective courses. Also here, it is possible to choose tracks, but like the Masters, will these not be explained. 
+A bachelor education consists of 180 ECTS points, a Master on 120 ECTS points and Diploma 60 ECTS points. Since the Bachelors consists of many mandatory courses, not a lot of ECTS points a available for elective courses. The direct opposite is the case for the Masters. Here most of the 120 ECTS points are elective, which is the same for the Diploma. 
+The different people associated with ITU can be divided into three groups: Students, Researchers and Staff. The most interesting group is of course the students, since this in this group, the recommendations will be targeted. This group can be further divided into full- and part-time students. Most people on the Bachelors and Masters are full-time whereas a small part of Masters aswell as all people on Diploma are part-time, for different reasons. 
+The three types of educations all have elective courses, but the the Masters have more 
+COURSES?
+What domain are we in? Description of special words. Explanation of the different educations/track/etc
+
+% 1-2 page
+\subsection{Design Choices}
+In this section explanations of the design choices made throughout the design process will be presented aswell as the 'consequences' of choosing the different solutions. 
+\subsubsection*{Collaborative or Content}
+One of the first and most important choices made for this system, is of course what kind of recommendation type of system, that should be developed. In section \ref{chap:chapter1} we outlined three different types of recommender systems: Collaborative-filtering (CF), Content-based (CT) and Hybrid approaches. As also explained in \ref{sec:collaborative} and \ref{sec:content} the two first types somewhat represents extremes and it is most common to use a hybrid of the two. To keep the system as simple as possible for a start, the approach chosen is the content-based one. The reasons for this, will be outlined below. \\
+The CF approach mostly builds upon ratings from users, which is used to either compare users with users or items with items, and then produce a list of recommendations. This makes the ratings a central and crucial part of the system. In order to implement this approach for a ITU recommender systems, these ratings could come from the course evaluation, which basically asks the students to 'rate' and comment on both the course and teacher. This could definitely be a viable solution, except that it relies a great deal upon the data from the course evaluation. Unfortunately the evaluation is only done by around 35-40\% students, which means the system will be affected of the things described as the 'Data sparsity' problem in section \ref{subsec:data_sparsity}. Even though many recommender systems suffer from this problems \todo{kilde?}, and are still implemented, the other approach have been chosen. Another problem would be the reliability of the ratings. Even though these would come from the students, and thereby represent their opinion about the courses, the would properly more reflect how popular are course are, more than the actual content of each course.\\ 
+The primary reason for choosing the CT approach is the availability of keyword for each course. Each of the courses available for the students, has an associated course description, which will be the primary source of content. In contrast to the CF approach, using the keywords from the course description, instead of ratings, would represent what the teacher thinks and imagines about the course, which is a more authentic and representative source of information. 
+
+NOTE: A key thing to note here are the distinguishing between the popularity of a course (rating) and the content of a course (keyword).
+
+\subsubsection{Persistent or memory?}
+\label{subsec:persistent}
+As part of the design process, it is necessary to look at the usage of the system, in order to choose if data should be read into memory at run-time when needed or a more persistent choice of data storage is needed. The answer to a question like this is closely related to when and how often the system is running. If the recommendations are needed many times daily or weekly, the choice would be to have the system running on a server, with a database taking routines backup of things like the different users profiles and recommendations. If the the system only would run a couple of times a month or year, one option would be to load all the raw data into the system for each run. Even if this process would be expensive to perform, it is easy to argument this being okay, since the data would only be used a few times and could be loaded in before actually needing it. Another option would be to load the raw data into the system on the first run, stripping it for unecessary information and then storing this data in a database and then just only update this database with new data, before each run. This latter option have been the chosen solution, since it enables the system to spend less time reprofiling all students for each run. It is only necessary to profile new students and courses. This should in theory reduce the time needed to calculating the recommendations.
+
+NOTES:
+even though the program only will run 2-3 times per year, perstiente the data to a database is needed. One could simpy keep the data in memory, but then it would be needed to 'reprofile' all students and analyse the content for each course, for each run of the program. When persisting the data, the program 'only' needs to compare the new data with the previous created profiles and the content for the courses.
+
+
+Target group?
+Tidsplan?
+Persistence or memory?
+% 0.5-1 page
+\subsection{Data Modeling}
+Following the section \ref{subsec:persistent} a analysis of the data for ITU, including information about students and courses, was needed. This analysis are then devised into a model of data, which we have chosen to represent using a ER-diagram. This is useful for further discussions and improvement of the system, but can also serve as inspiration for the classes and objects needed at the programmatic abstraction layer. 
+
+\subsubsection{ER-Diagram}
+The ER-diagram following below reflects our considerations and reflections about how to represent the selected data in relational database. At the time of writing, where no real implementation has taken place, this diagram reflects the bare minimum required for the development of the system. The reason for not including the rest, is that this is best done with a agile and iterative development process, which have not been possible to engage in due to a time-constraint. It represents the results of the data selection process, which have been about prioritizing the available data from ITU in to the relevant data for the system, which have meant we have excluded some non-needed information attributes.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Pictures/ER-Diagram.jpg}
+\label{ER-diagram}
+\caption{ER-Diagram}
+\end{figure}
+
+% 0.5-1 page
+\subsection{Architecture Analysis}
+Flow of the program
+Picture of package diagram/components
+
+% ? page
+\subsection{Glossary}
+\begin{itemize}
+	\item[ECTS points] 
+	\item[SWU]
+	\item[GBI]
+	\item \todo{more?}
+	\item[CF] Collaborative-Filtering approach
+	\item[CT] Content-based approach
+	\item[Course evaluation]
+\end{itemize}
+% 1-2 page
+\subsection{ITU Recommender System}
+Profile Learner
+Content Analyzer
+Filtering Component
+
+
+%#############% 
 \subsubsection{Data on students}
 First step is to divide up the students into the groups where they belong, using the first five student data points.
 
@@ -33,30 +110,36 @@ The last two student data point serves as contact information (name is also used
 \subsubsection{Course information}
 
 - Name
-- ECTS
+- ECTS (should be included, so a student with only 7,5 etcs available, will not be recommended courses with 15 etcs)
 - Which semester
 - Course code
 - Course language
 - Max seats
 - Current number of taken seats
-- Formal requirements
-- Course learning goals
-- Academic content
-- Mandatory activities
-- Exam forms (date and description)
-- Litterature
-- Curricullum
-- Course responsible/manager
-- Relevant for
-- Time and place
+- Formal requirements (to vaguely defined in order to extract proper information)
+- Course learning goals (not important)
+- Academic content (this is here the keywords are extracted for the recommender system)
+- Mandatory activities (not important)
+- Exam forms (date and description) (the student must check if exam dates collide)
+- Litterature (not important)
+- Curricullum (not important)
+- Course responsible/manager (not important)
+- Relevant for (needs to properly defined, but is usefull)
+- Time and place (it is the students responsible to check if courses collide)
 
 
 
+\subsubsection{List of Requirements}
+\begin{itemize}
+	\item The list of possible courses for each student, must NOT contain mandatory courses or courses the student already have had.
+	\item Der skelnes mellem tilmeldte og tidligere tilmeldte kurser, i forhold til bestået kurser, for at undgå at man bliver anbefalet kurser, som man er igang med på tidspunktet hvor anbefalingen falder. 
+\end{itemize}
+  
 
 \subsubsection{Recommender system output}
 
 - Max seats in recommended course
-- Current number os seats taken in recommended course
+- Current number of seats taken in recommended course
 - NOTE: please check that the recommended courses are not colliding with your mandatory or other elective courses
 - 
 
@@ -72,3 +155,5 @@ MAKE NEW DRAWING SHOWING THE INFORMATION FLOW WITHIN THE SYSTEM BOTH FOR CONTENT
 IF COLLABORATIVE BASED (ALWAYS RATING BASED): USER-USER OR ITEM-ITEM
 
 It will be a choice between what the course contain (can't really be shown from the users ratings of the course, since two courses can be completely different in regard to content, but have the same overall ratings) and how popular the course is (can be shown by the ratings, but will be a problem with new courses). Only about 40 percent of students are rating their courses via the course evaluation.
+\subsubsection{Discussion}
+The system is requiring feedback from users. The only feedback available is on previous selected courses, which is not a lot. But this is in general a problem for many recommender systems, the lack of feedback from users, being both ratings and content-feedback. 

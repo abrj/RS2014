@@ -1,6 +1,6 @@
 %!TEX root = ../../report.tex
 \section{Collaborative Recommendations}
-\label{sub:basic_collaborative_recommendations}
+\label{sec:collaborative}
 The main idea of this approach for recommendations, is to base the recommendations of items on similar users or similar items.\\
 This method of recommending is one of the most widely spread, as it is used both at Amazon, Netflix and similar high-value companies \todo{Kilde: Linden et al. 2003}.\\
 In this section, the different implementation techniques of CF recommender systems will be described and a list of pro's and cons, be giving towards the end. We will distinguish between what is known as user-based and item-based recommendations \todo{Kilde: Recommender Systems, An Introduction}. But before going is to these descriptions, a short section for the commons features will be explained\\
@@ -19,7 +19,7 @@ The approach described here are recommending on the basis of what is known as pe
 To illustrate this, we can return to our rating matrix in matrix \(R\). Here Alice have not rated item 4 and the task of the RS is then to predict the rating for item 4, based on the ratings of this item from peer-users, which is user2 and user4. Most commonly the is done, using the Pearson correlation coefficient\todo{KILDE?}, which calculates the similarity between users.
 
 \subsubsection{Pearson correlation}
-Before describing the mathematical formulations, we need first to establish the basic terms required for the calculations. As described in section \ref{sub:basic_collaborative_recommendations} a matrix of items and users are made. The users will in the following be denoted as \( U = {u_{1}, \ldots , u_{n}} \) , the items will be denoted as \( P = {p_{1}, \ldots , p_{n}} \) and \(R\) for the \({n x m}\) matrix for ratings \(r_{i}, r_{j}\) for \(i \in 1 \ldots n, j \in 1 \ldots m\). The possible ratings a user can give is 1-5, where 5 being the the most-liked rating option. 
+Before describing the mathematical formulations, we need first to establish the basic terms required for the calculations. As described in section \ref{sec:collaborative} a matrix of items and users are made. The users will in the following be denoted as \( U = {u_{1}, \ldots , u_{n}} \) , the items will be denoted as \( P = {p_{1}, \ldots , p_{n}} \) and \(R\) for the \({n x m}\) matrix for ratings \(r_{i}, r_{j}\) for \(i \in 1 \ldots n, j \in 1 \ldots m\). The possible ratings a user can give is 1-5, where 5 being the the most-liked rating option. 
 The similarity between user a and user b, giving the matrix \(R\) is defined as follows:\\
 
 \[
@@ -71,6 +71,7 @@ After the similarity between the items have been calculated, the recommender sys
 \]
 
 \subsubsection{Data sparsity and cold start problem}
+\label{subsec:data_sparsity}
 % subsection user_item_based_recommendations (end)
 \todo{section: Data preprocessing}
 
