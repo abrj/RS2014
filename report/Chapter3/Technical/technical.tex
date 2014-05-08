@@ -155,5 +155,44 @@ MAKE NEW DRAWING SHOWING THE INFORMATION FLOW WITHIN THE SYSTEM BOTH FOR CONTENT
 IF COLLABORATIVE BASED (ALWAYS RATING BASED): USER-USER OR ITEM-ITEM
 
 It will be a choice between what the course contain (can't really be shown from the users ratings of the course, since two courses can be completely different in regard to content, but have the same overall ratings) and how popular the course is (can be shown by the ratings, but will be a problem with new courses). Only about 40 percent of students are rating their courses via the course evaluation.
-\subsubsection{Discussion}
-The system is requiring feedback from users. The only feedback available is on previous selected courses, which is not a lot. But this is in general a problem for many recommender systems, the lack of feedback from users, being both ratings and content-feedback. 
+
+\subsubsection{Content Analyzer}
+pseduo-algo
+\begin{itemize}
+	\item Make a list of non-keywords like "this", "and", "is" or "will". (\todo{NOTE}: This will cause the system to be less biased (fairness?), compared to a humar (Rune) selecting the keywords.)
+	\item Construct regex which identifies ALL words in the current document, except the ones from the non-keyword list
+	\item Count number of occurrences of each word found by the regex expression
+	\item Repeat step 2 and 3 for ALL courses and construct a datastructure of maps with maps. Meaning the first map has the course code as key and the value being a map containing each specific keyword and key and the number of occurences as value. 
+	\item Use the TFIDF formula for each course, which will produce a vector space containing n-keywords dimensions, where each dimension contains a vector with a lenght representing the weight of this keyword, for this specific course 
+	\item Use the Cosine normalization formula for normalizing every keyword vector for all courses.
+\end{itemize}
+
+\subsubsection{Profile Learner}
+\begin{itemize}
+	\item Find all elective courses the student have been signed up for. 
+	\item Of these courses, compute the average vector (adding the vectors together and divide by number of vectors) by projecting each of the vectors on each other. This resulting vector represents the users preferences, in relation to the elective courses the student have signed up for. 
+	\item In the list of courses taken from the Content Analyzer, sort out all the courses the student already have been signed up for. (the student are not allowed to sign up for courses, he/she already have been signed up for - \todo{VALUE-NOTE-->}This makes the system a bit bias, since the student could have been signed up for a courses, but failed it. Cases like this, will be ignored by the system. If a student have failed a course, the student will know if he/she wants it again, which will be hard to know for the system)
+	\item In the list of courses taken from Content Analyzer, sort out all courses that the student will have as mandatory courses in the future.
+	\item Use the resulting vector produced in step 2, to compare every course from the Content Analyzer to produce the list of recommendations.
+	\item Sort the list of recommendations, having the courses with the most similarity (closest to 1) with the resulting vector 
+\end{itemize}
+
+\subsubsection{Value Considerations} % (fold)
+\label{sub:value_considerations}
+List of keywords vs list of non-keywords\\
+Ignoring the case of students having been signed up for a course, but failed it. This can the system not handle, and this will in some sense make the system a bit biased. 
+
+% subsection value_considerations (end)
+\subsubsection{Future improvements} % (fold)
+\label{sub:future_improvements}
+
+
+% subsection future_improvements (end)
+
+\subsection{End of chapter3} % (fold)
+\label{sub:end_of_chapter3}
+
+% subsection end_of_chapter3 (end)
+\subsection{Discussion}
+The system is requiring feedback from users. The only feedback available is on previous selected courses, which is not a lot. But this is in general a problem for many recommender systems, the lack of feedback from users, being both ratings and content-feedback.\\
+Using the VSD framework and finding values have, instead of being a linear straigtforward process, are more iterative one. We started out, like suggested by the framework, to identify relevant values and bring them in to the design process. This proved harded to do, than we expected. Instead, we found ourselves narrowing the list of proposed values from the framework, but NOT selecting what of the remaining values to embed. We then went on the design the system in the way of doing this, we had 'value considerations' in mind and noted whenever we were faced with a decision which could affect some values. 
