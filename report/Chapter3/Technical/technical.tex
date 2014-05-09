@@ -90,12 +90,12 @@ At the end of this algorithm, each course will have an associated vector, which 
 \subsubsection{Profile Learner}
 This component is used to analyze every student preferences. To do this, some feedback or history from the students are needed. This feedback will, as explained \todo{where is it explained?}, come from the previous elective courses, that the student have been signed up for. The reason for using this information, is the fact, that we believe that this is the most significant and reliable source of information. Like the Content Analyzer, the flow of this component are expressed in form of a pseudo algoritm outlined below:
 \begin{itemize}
-	\item Find all elective courses the student have been signed up for. 
+	\item Find all elective courses the student have been signed up for, retrieving it from the Content Analyzer.
 	\item Of these courses, compute the average vector (adding the vectors together and divide by number of vectors) by projecting each of the vectors on each other. This resulting vector represents the users preferences, in relation to the elective courses the student have signed up for. 
 \end{itemize}
-
+This will 'collect' all the elective courses the student have been signed up for at produce a resulting vector, which expresses the students preferences. If the student have had no elective courses, the Profile Learner will notify the Filtering Component and this will decide how to proceed. 
 \subsubsection{Filtering Component}
-
+This component receive the results from the Content Analyzer and the Profile Learner, in order to produce the list of recommendations for each student. The input needed, are the courses with a associated vectors for the keywords and a vector representing the each students preferences, based on previous elective courses. It used this information in the way described below:
 \begin{itemize}
 	\item In the list of courses taken from the Content Analyzer, sort out all the courses the student already have been signed up for. (the student are not allowed to sign up for courses, he/she already have been signed up for - \todo{VALUE-NOTE-->}This makes the system a bit bias, since the student could have been signed up for a courses, but failed it. Cases like this, will be ignored by the system. If a student have failed a course, the student will know if he/she wants it again, which will be hard to know for the system)
 	\item In the list of courses taken from Content Analyzer, sort out all courses that the student will have as mandatory courses in the future.
@@ -198,4 +198,4 @@ Ignoring the case of students having been signed up for a course, but failed it.
 The system is requiring feedback from users. The only feedback available is on previous selected courses, which is not a lot. But this is in general a problem for many recommender systems, the lack of feedback from users, being both ratings and content-feedback.\\
 Using the VSD framework and finding values have, instead of being a linear straigtforward process, are more iterative one. We started out, like suggested by the framework, to identify relevant values and bring them in to the design process. This proved harded to do, than we expected. Instead, we found ourselves narrowing the list of proposed values from the framework, but NOT selecting what of the remaining values to embed. We then went on the design the system in the way of doing this, we had 'value considerations' in mind and noted whenever we were faced with a decision which could affect some values. \\
 Alternative to the VSD framework/developing approach
-Locality sensitive hashing (LSH) alternative to the cosine similarity 
+Locality sensitive hashing (LSH) alternative to the cosine similarity to get better speed at run time. 
