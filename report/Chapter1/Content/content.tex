@@ -56,18 +56,39 @@ The object profile and the user profile are compared by the system calculating t
 How the vector which describes an item is computed
 
 In order to understand the concept of the vector weighting we imagine that we have a content space that holds all the keywords that are relevant to the specific situation that we are in. In this space, each keyword represents its own dimension (there are as many dimensions as there are keywords related to the space). Each object occupies a position or a ÒspotÓ in our space, which is defined by a vector value.
-Each of our users has a ÒtasteÓ profile which is also indicated by vectors in our space. The Illustration below shows a two-dimensional example of how the object and user vectors can be placed.
-
-INSERT A TWO DIMENSIONAL ILLUSTRATION WITH VECTORS 
-(Use the Wiki page for Vector Space Model to get inspiration and further explanations on the concept)
+Each of our users has a ÒtasteÓ profile which is also indicated by vectors in our space.
 
 There are several ways in which a vector can be computed, in our case we have outlined the three most common ways.
 - In some cases a vector will represent a fact (true/false statement) and can be computed simply by using a boolean value. An example of this can be whether a specific keyword is used in a specific document, or whether a specific actor is in a specific movie. The boolean would be used here because it is simply not possible to give this vector a further notion of intensity.
-Another way to compute a vector can be by the number of occurences, which can help give a bigger notion of intensity for the vector.
+Another way to compute a vector can be by the number of occurrences, which can help give a bigger notion of intensity for the vector.
 Our TFIDF implement both of the above mentioned methods, since it can give us a notion of intensity along with a notion of distinctiveness for the individual vector.\newline
 
-\todo{INSERT SOME TEXT AND ILLUSTRATIONS ABOUT THE FORMULAS OF TFIDF}
+Below is shown the formulas for TF-IDF along with an explanation to each.
 
+TF calculates a value for a specific keyword in relation to how many times it occur in the specific document.
+%TF
+\[
+	\text{TF}(t_{k},d_{j}) = \frac{f_{k,j}}{max_{z}f_{z,j}}
+\]
+
+The TF-IDF approach add an extra layer to the TF, by further calculating the keywords occurrences in relation to the documents as a whole.
+%TF-IDF
+\[
+	\text{TF-IDF}(t_{k},d_{j}) = \text{TF}(t_{k},d_{j}) * log{\frac{N}{n_{k}}}
+\]
+
+Cosine normalization is used to give all the weights in the calculation a value between 0 and 1, and will ensure that the documents are represented by vectors of equal length.
+%cosine normalization
+\[
+	w_{k,j} = \frac{\text{TF-IDF}(t_{k},d_{j})}{\sqrt{\sum_{s=1}^{|T|} \text{TF-IDF}(t_{s}, d_{j})^2}}
+\]
+
+The cosine similarity is used to give an indication of the similarity between two vectors, which can then be used to predict whether a user will be interested in a particular item or not. The result is a value between 0 and 1, where the closer we get to one, the bigger the similarity of the items.
+
+%cosine similarity
+\[
+	sim({d_{i},d_{j}}) = \frac{\sum_{k}w_{ki}*w_{kj}}{\sum_{k}w_{ki}^2*\sum_{k}w_{kj}^2}
+\]
 
 
 While some of the challenges of recommender systems is to figure out the right weights and factors to use to compute the recommendations for the users, most of the basic recommender system does not handle interdependencies, since it most often are outside the scope of the systems work area.
@@ -77,32 +98,11 @@ An example of an interdependency could be from the movie world where a user migh
 When looking at recommender systems from a content-based systems point of view there are several advantages over a recommender system in a collaborative-based form.\\
 
 The three main areas of advantage are user independence, transparency, and new items.
-The user indepence shows itself in that the content-based recommendations are solely based on the active userâ€™s own preferences and does not rely on the interaction of others.
-The content-based recommendations are transparent in the way that all its recommendations are clearly based on the list of items placed on the userâ€™s list of preferences, and consists of no estimated guesses. The advantage of a content-based recommender system in regards to new items that enters the Represented Items repository, is that these items will not need to be rated prior to being recommended to the users. Here, the only dependency is whether the item is similar enough to the individual users preferences.\\
+The user independence shows itself in that the content-based recommendations are solely based on the active user's own preferences and does not rely on the interaction of others.
+The content-based recommendations are transparent in the way that all its recommendations are clearly based on the list of items placed on the user's list of preferences, and consists of no estimated guesses. The advantage of a content-based recommender system in regards to new items that enters the Represented Items repository, is that these items will not need to be rated prior to being recommended to the users. Here, the only dependency is whether the item is similar enough to the individual users preferences.\\
 
 As well as the above mentioned advantages, a content-based Recommender System also has some disadvantages. The three main areas here are limited content analysis, over-specialization, and new userâ€™s.
 The limited content analysis revolves around the fact, that content-based Recommender Systems most often are dependant on domain knowledge. An example of this could be for a movie recommendation. Here, the Recommender System would need to know the actors, director, genre, and alike. If the Content Analyzer does not find a suitable amount of information, then it will be virtually impossible for the Recommender System to distinguish between items correlating with the user preferences and items that are of no interest at all.\linebreak
 The disadvantage with over-specialization is that the user will never be recommended any items in a positive unexpected manner. What is meant by this is that the user's personal area of preferences might be somewhat wider than the area of the current information held in the User Profile, but since the recommended items for the individual user is based on a match with the items previously rated by the user, there will never be a recommendation deviating from this. This disadvantage is also referred to as The Serendipity Problem.\linebreak
 The new user disadvantage can be sort of a predicament for the Recommender System. The issue here is that in order to give the new user a fair recommendation based on user interests and preferences, the user will need to have rated a certain amount of items for the Filtering Component to compare with. When the new user first create his or her account, the recommender system is somewhat forced to either recommend a set of random items or recommend what the average user would be recommended. In most recommender systems the latter is the solution of choice.
 
-\[
-	sim(a,b) = \frac{\sum_{p\in P} (r_{a,p} - \bar{r_{a}})(r_{b,p} - \bar{r_{b}})}{\sqrt{\sum_{p\in P} (r_{a,p} - \bar{r_{a}})^2} \sqrt{\sum_{p\in P} (r_{b,p} - \bar{r_{b}})^2}}
-\]
-%TF-IDF
-\[
-	\text{TF-IDF}(t_{k},d_{j}) = \text{TF}(t_{k},d_{j}) * log{\frac{N}{n_{k}}}
-\]
-%TF
-\[
-	\text{TF}(t_{k},d_{j}) = \frac{f_{k,j}}{max_{z}f_{z,j}}
-\]
-
-%cosine normalization
-\[
-	w_{k,j} = \frac{\text{TF-IDF}(t_{k},d_{j})}{\sqrt{\sum_{s=1}^{|T|} \text{TF-IDF}(t_{s}, d_{j})^2}}
-\]
-
-%cosine similarity
-\[
-	sim({d_{i},d_{j}}) = \frac{\sum_{k}w_{ki}*w_{kj}}{\sum_{k}w_{ki}^2*\sum_{k}w_{kj}^2}
-\]
