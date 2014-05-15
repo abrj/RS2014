@@ -1,3 +1,4 @@
+%!TEX root = ../../report.tex
 \section{Content-based Recommender Systems}
 \label{sec:content}
 
@@ -119,4 +120,25 @@ Extraction techniques
 Information Retrieval systems
 
 - 
-%
+
+\[
+	sim(a,b) = \frac{\sum_{p\in P} (r_{a,p} - \bar{r_{a}})(r_{b,p} - \bar{r_{b}})}{\sqrt{\sum_{p\in P} (r_{a,p} - \bar{r_{a}})^2} \sqrt{\sum_{p\in P} (r_{b,p} - \bar{r_{b}})^2}}
+\]
+%TF-IDF
+\[
+	\text{TF-IDF}(t_{k},d_{j}) = \text{TF}(t_{k},d_{j}) * log{\frac{N}{n_{k}}}
+\]
+%TF
+\[
+	\text{TF}(t_{k},d_{j}) = \frac{f_{k,j}}{max_{z}f_{z,j}}
+\]
+
+%cosine normalization
+\[
+	w_{k,j} = \frac{\text{TF-IDF}(t_{k},d_{j})}{\sqrt{\sum_{s=1}^{|T|} \text{TF-IDF}(t_{s}, d_{j})^2}}
+\]
+
+%cosine similarity
+\[
+	sim({d_{i},d_{j}}) = \frac{\sum_{k}w_{ki}*w_{kj}}{\sum_{k}w_{ki}^2*\sum_{k}w_{kj}^2}
+\]
