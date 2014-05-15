@@ -56,7 +56,7 @@ The above presentation of a recommender systems is of course a very small exampl
 This concludes the describtion of the user-user based recommendation technique.
 % subsection user_user_based_recommendations (end) 
 
-\subsection{item based recommendations} % (fold)
+\subsection{item-based recommendations} % (fold)
 \label{sub:item_based_recommendations}
 Another technique of collaborative recommendations, called item-based, are in certain areas very similar to the user-based technique described above. The main idea of this approach is to calculate the similarity between items, instead of users, based on ratings for the items. If we want to compute the rating for \(Item5\) and we return to our matrix in \ref{tableofratings}, we can see that the ratings given for \(Item5\), is close to the ratings given for both \(Item1\) and \(Item4\). Because of this similarity, we can conclude the following: Since \(Alice\) gave a rating of 5 to \(Item1\) and gave a rating of 4 to \(Item4\), an item-based recommender system will compute the average of these similar items ratings and give item5 a rating between 4 and 5.
 
@@ -90,6 +90,7 @@ After the similarity between the items have been calculated, the recommender sys
 	pred(u,p) = \frac{\sum_{i\in ratedItems(u)} sim(i,p) * r_{u,i}}{\sum_{i \in ratedItems(a)} sim(i,p)}
 \]
 
+\todo{finish this section}
 
 \subsection{Advantages and disadvantages}
 Collaborative recommender systems is one of the most researched techniques between the different types of recommendation systems and because of this, many different types of collaborative recommendations exists \citep{IntroductionRecommenderSystems}. Between all these different types, it is possible to outline some common advantages and disadvantages, which will be done in this section.\newline
