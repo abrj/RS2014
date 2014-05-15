@@ -3,7 +3,7 @@
 \label{sec:collaborative}
 The main idea of this approach for recommendations, is to base the recommendations of items on similar users or similar items.\newline
 This method of recommending is one of the most widely spread, as it is used both at Amazon, Netflix and similar high-value companies \citep{AmazonReommendations} \todo{check source} \newline
-In this section, the different implementation techniques of CF recommender systems will be described and a list of pro's and cons, be giving towards the end. We will distinguish between what is known as user-based and item-based recommendations \todo{Kilde: Recommender Systems, An Introduction}. But before going is to these descriptions, a short section for the commons features will be explained\newline
+In this section, the different implementation techniques of CF recommender systems will be described and a list of pro's and cons, be giving towards the end. We will distinguish between what is known as user-based and item-based recommendations \todo{Kilde: Recommender Systems, An Introduction}. But before going in to these descriptions, a short section for the commons features will be explained\newline
 For both types of recommendations the basic problem can be formulated like this: For any given user and non-rated item pair, try to estimate the rating the user will give, for this item.\newline
 The most common approach is therefore to define a user-item matrix as seen in the table below \todo{make sure text fits with table}
 
@@ -50,7 +50,7 @@ which produces the following: \newline
 \[
 	pred(a,p) = 4 + \frac{0,85*(3-2,4)+0,70*(5-3,8)}{0,85+0,70} = 4,87
 \]
-Based on these predictions, we are now able to fill out the rating matrix for \(Alice\) and making a list of top recommendations, based on this matrix, which contains both computed ratings and actual rations from \(Alice\) \newline
+Based on these predictions, we are now able to fill out the rating matrix for \(Alice\) and make a list of top recommendations. The list of recommendations is a product of both computed ratings, using the above method, and actual ratings from \(Alice\) \newline
 
 The above presentation of a recommender systems is of course a very small example and in real world applications, the case of recommending is not a straight-forward as the method described here. The example just holds 5 users and 5 items, whereas real-world applications often contains tens of thousand or even millions of both items and users, which was the case for the Netflix Prize, which contained 480,000, 18,000 movie titles \citep{NetflixPrize}. As we will later present, a problem about data sparsity with rating for items, is also a very present and problematic issue for recommendations systems. \todo{Problems with scalability}\newline
 This concludes the describtion of the user-user based recommendation technique.
@@ -58,11 +58,11 @@ This concludes the describtion of the user-user based recommendation technique.
 
 \subsection{item based recommendations} % (fold)
 \label{sub:item_based_recommendations}
-Another technique of collaborative recommendations, called item-based, are in certain areas very similiar to user-based technique described above. The main idea of this approach is to calculate the similarity between items, instead of users, based on ratings for the items. If we want to compute the rating for \(Item5\) and we return to our matrix in \ref{tableofratings}, we can see that the ratings given for \(Item5\), is close to the ratings given for both \(Item1\) and \(Item4\). Because of this similarity, we can say that: Since \(Alice\) gave a rating of 5 to \(Item1\) and user b gave a rating of 3 to item4, item2 and item4 is similar in theirs ratings, a item-based recommender system will compute the average of these similar items ratings and give item5 a rating between 3 and 4. \todo{Bedre eksempel. p19}
-In the following a description of one item-based algorithm will be presented. 
+Another technique of collaborative recommendations, called item-based, are in certain areas very similiar to user-based technique described above. The main idea of this approach is to calculate the similarity between items, instead of users, based on ratings for the items. If we want to compute the rating for \(Item5\) and we return to our matrix in \ref{tableofratings}, we can see that the ratings given for \(Item5\), is close to the ratings given for both \(Item1\) and \(Item4\). Because of this similarity, we can conclude the following: Since \(Alice\) gave a rating of 5 to \(Item1\) and gave a rating of 4 to \(Item4\), an item-based recommender system will compute the average of these similar items ratings and give item5 a rating between 4 and 5.
 
 \subsubsection{Cosine similarity measure}
-In the previous sections, we looked at how item5 had similar ratings as item2 and item4.Because of a small dataset, it was possible to observe this similarity without any kind of calculations. It is rarely the case that this is possible in real-world applications and one of the methods for calculating this similarity is to use the cosine similarity measure. Making a vector from each of the items, based on their ratings, this method uses the angle between the two vector for measuring of their similarity. The formula for calculating this angle is found below:
+In the previous sections we looked at how \(Item5\) had similar ratings as \(Item1\) and \(Item4\). Because of a small dataset, it was possible to observe this similarity without any kind of calculations. It is rarely the case that this is possible in real-world applications and one of the methods for calculating this similarity is to use the cosine similarity measure. \newline 
+By making a vector from each of the items, based on their ratings, this method uses the angle between two vectors for finding their similarity. The formula for calculating this angle is found below:
 
 \[
 	sim(\vec{a}, \vec{b}) = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}| * |\vec{b}| }
@@ -72,27 +72,30 @@ In the previous sections, we looked at how item5 had similar ratings as item2 an
 
 The cosine similarity values goes from -1, trough 0 and to 1, where 1 indicates a strong similarity between the two compared items, just like the Pearson method, as indicated on the picture below:
 
-\begin{figure}[ht!]
+\begin{figure}[H]
 \centering
 \includegraphics[width=90mm]{Pictures/cosinesimilarity.png}
 \caption{source: http://pyevolve.sourceforge.net/wordpress/?p=2497}
 \label{cosinesimilarity}
 \end{figure}
 
-Differently from the Pearson method, the formula does not take into account that users use a rating scale differently. \todo{maybe note the adjusted cosine measure her? p19}
-After the similarity between the items have been calculated, the recommender system can predict a rating for user a's item5, based on the ratings for the items similar to item5. This prediction is done, using the formula below:
+Differently from the Pearson method, does this formula not take into account that users use a rating scale differently. To take this into account, the adjusted cosine measure could be used:
+
+\[
+	sim(a,b) = \frac{\sum_{u \in U}(r_{u,a} - \bar{r_{u}})*(r_{u,b} - \bar{r_{u}})}{\sqrt{\sum_{u \in U}(r_{u,a} - \bar{r_{u}})^2}\sqrt{\sum_{u \in U} (r_{u,b} - \bar{r_{u}})^2}}
+\]
+After the similarity between the items have been calculated, the recommender system can predict a rating for \(Alice's\) \(Item5\), based on the ratings for the items similar to \(Item5\). This prediction is done, using the formula below:
 
 \[
 	pred(u,p) = \frac{\sum_{i\in ratedItems(u)} sim(i,p) * r_{u,i}}{\sum_{i \in ratedItems(a)} sim(i,p)}
 \]
 
-\subsubsection{Data sparsity and cold start problem}
-\label{subsec:data_sparsity}
-% subsection user_item_based_recommendations (end)
-\todo{section: Data preprocessing}
+
+\todo{\subsubsection{Data sparsity and cold start problem}}
 
 \subsection{Advantages and disadvantages}
-According to \citep{IntroductionRecommenderSystems} collaborative recommender systems is one of the most researched techniques of the two and because of this many different types of collaborative recommendations exists, as described in the above. Even with many different types, it is possible to outline some common advantages and disadvantages, which we be done in this section. Firstly, collaborative filtering can work independent of the items the system holds, since it uses ratings to recommender from, as opposed to content-based, which requires the item to have some content that can be compared \citep[p. 18]{TowardsTheNextGenerationOfRs}. 
+According to \citep{IntroductionRecommenderSystems} collaborative recommender systems is one of the most researched techniques between the different types of recommendations systems and because of this, many different types of collaborative recommendations exists. Between all these different types, it is possible to outline some common advantages and disadvantages, which will be done in this section.\newline
+One of the big advantages, compared to Content-based recommendations (which will be explained later), are the fact that collaborative filtering works independently of the items it recommends. The only thing needed to produce recommendations are ratings, even if the items are dissimilar to those seen in the past \citep[p. 18]{TowardsTheNextGenerationOfRs}. This does however also mean that the system are very depended upon ratings, which means that the system are very vulnerable, if no ratings are given. Another advantages are the possibility of adding new items. Compared to Content-based, new items can be added to the inventory without having to analyzing the content of the item. 
 \todo{more advantages?}
 Likewise with content-based recommender method, the collaborative method do also have some disadvantages, or more correct, some challenges, described here as: New user problem, new item problem and data sparsity. 
 \begin{itemize}
