@@ -1,3 +1,4 @@
+%!TEX root = ../../report.tex
 \section{Content-based Recommender Systems}
 \label{sec:content}
 
@@ -83,3 +84,25 @@ As well as the above mentioned advantages, a content-based Recommender System al
 The limited content analysis revolves around the fact, that content-based Recommender Systems most often are dependant on domain knowledge. An example of this could be for a movie recommendation. Here, the Recommender System would need to know the actors, director, genre, and alike. If the Content Analyzer does not find a suitable amount of information, then it will be virtually impossible for the Recommender System to distinguish between items correlating with the user preferences and items that are of no interest at all.\linebreak
 The disadvantage with over-specialization is that the user will never be recommended any items in a positive unexpected manner. What is meant by this is that the user's personal area of preferences might be somewhat wider than the area of the current information held in the User Profile, but since the recommended items for the individual user is based on a match with the items previously rated by the user, there will never be a recommendation deviating from this. This disadvantage is also referred to as The Serendipity Problem.\linebreak
 The new user disadvantage can be sort of a predicament for the Recommender System. The issue here is that in order to give the new user a fair recommendation based on user interests and preferences, the user will need to have rated a certain amount of items for the Filtering Component to compare with. When the new user first create his or her account, the recommender system is somewhat forced to either recommend a set of random items or recommend what the average user would be recommended. In most recommender systems the latter is the solution of choice.
+
+\[
+	sim(a,b) = \frac{\sum_{p\in P} (r_{a,p} - \bar{r_{a}})(r_{b,p} - \bar{r_{b}})}{\sqrt{\sum_{p\in P} (r_{a,p} - \bar{r_{a}})^2} \sqrt{\sum_{p\in P} (r_{b,p} - \bar{r_{b}})^2}}
+\]
+%TF-IDF
+\[
+	\text{TF-IDF}(t_{k},d_{j}) = \text{TF}(t_{k},d_{j}) * log{\frac{N}{n_{k}}}
+\]
+%TF
+\[
+	\text{TF}(t_{k},d_{j}) = \frac{f_{k,j}}{max_{z}f_{z,j}}
+\]
+
+%cosine normalization
+\[
+	w_{k,j} = \frac{\text{TF-IDF}(t_{k},d_{j})}{\sqrt{\sum_{s=1}^{|T|} \text{TF-IDF}(t_{s}, d_{j})^2}}
+\]
+
+%cosine similarity
+\[
+	sim({d_{i},d_{j}}) = \frac{\sum_{k}w_{ki}*w_{kj}}{\sum_{k}w_{ki}^2*\sum_{k}w_{kj}^2}
+\]
