@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex report"] 1400235958 "report.aux" "report.bbl" "report" 1400235959
+["bibtex report"] 1400238221 "report.aux" "report.bbl" "report" 1400238222
   "./myplainnat.bst" 1400017644 26817 7755b7bec1af7eb815ff271e3c47ec5a ""
   "bibliography.bib" 1400147650 3812 34c27734d4e4ef9ca5bb1f839485d378 ""
-  "report.aux" 1400235959 19899 fca6df665fb81a046289d47e6bc12df4 ""
+  "report.aux" 1400238222 19939 7d906aa4fdd9ea04698c66f2a685a63a ""
   "report.bcf" 0 -1 0 ""
   (generated)
   "report.bbl"
   "report.blg"
-["pdflatex"] 1400235958 "report.tex" "report.pdf" "report" 1400235959
+["pdflatex"] 1400238221 "report.tex" "report.pdf" "report" 1400238222
   "/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/gettitlestring.sty" 1303254447 8237 52810bdb4db2270e717422560a104aea ""
@@ -60,8 +60,8 @@
   "Chapter/Values/values.tex" 0 -1 0 ""
   "Chapter1/Collaborative/collaborative.tex" 1400234346 10696 ee572e175cd95088d690d4ba10ceb40c ""
   "Chapter1/Content/content.tex" 1400229469 18475 e4c2236fd5046c48f73669b98e067870 ""
-  "Chapter1/Hybrid/hybrid.tex" 1400181544 2571 94ceac70833dac7d93a50d5e98b6fb7f ""
-  "Chapter1/Introduction/introduction.tex" 1400235956 4981 591b9592a8573375c8fd5c6effe2a4fe ""
+  "Chapter1/Hybrid/hybrid.tex" 1400238219 3642 6e02bf9279ef023e366042ad5aeaaba4 ""
+  "Chapter1/Introduction/introduction.tex" 1400236007 4970 86e739987045d7016e431c10ca957169 ""
   "Chapter2/TechnologyAndBiases/biases.tex" 1398941507 6782 4c6547d328905a5ed62f429ee11dba91 ""
   "Chapter2/TechnologyAndValues/values.tex" 1400178044 10114 35630f6375d93987fe73db080cfc0a8f ""
   "Chapter3/Conceptual/conceptual.tex" 1398950855 129 98ff35bd8a2c5d156b9a49e0fb780687 ""
@@ -73,11 +73,11 @@
   "Pictures/contentdescription.png" 1396512913 49540 ea3b72f53d0dd628c404fa58e80b3131 ""
   "Pictures/cosinesimilarity.png" 1394895805 36116 5be84646d4a8cb7179c88cc63fc4b0fe ""
   "edmaths.sty" 1394790991 7110 040f1b25344d8d1e5884cbffdf8c83b7 ""
-  "report.aux" 1400235959 19899 fca6df665fb81a046289d47e6bc12df4 ""
-  "report.bbl" 1400235958 1901 4ce54091cb553a8230d9aa9a6bab174f "bibtex report"
-  "report.out" 1400235959 2482 60d1b89eff62f820301b8ca56a53df5d ""
+  "report.aux" 1400238222 19939 7d906aa4fdd9ea04698c66f2a685a63a ""
+  "report.bbl" 1400238221 1901 4ce54091cb553a8230d9aa9a6bab174f "bibtex report"
+  "report.out" 1400238222 2482 60d1b89eff62f820301b8ca56a53df5d ""
   "report.tex" 1400172561 1490 19e328838257f666391c281da8379c7b ""
-  "report.toc" 1400235959 4554 767d4cc5d6fc1832efbe185424e4c88a ""
+  "report.toc" 1400238222 4554 512686ba73438c137b7b8f5d6c090378 ""
   (generated)
   "*.aux"
   "Part1/Collaborative/collaborative.aux"
