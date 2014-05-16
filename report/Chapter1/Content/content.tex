@@ -4,9 +4,10 @@
 
 \subsection{The functionality of a content-based RS}
 The overall reason to implement a Content-based recommender system is basically the same as for other recommender systems; to deliver a list of recommendations that statistically will be seen as valuable to the user. Where it differentiates itself from others is in the way these recommendations are generated.\newline 
-A content-based recommender system will try to recommend items to the user similar to items that the user has either bought or somehow interacted with in the past. In other words, the way the content-based recommender system approaches the recommendation process is by analyzing a set of keywords from previous items preferred by the user, and from this information extract the users preferences and interests.\newline 
+
+A content-based recommender system will try to recommend items to the user similar to items that the user has either bought or somehow interacted with in the past. In other words, the way the content-based recommender system approaches the recommendation process is by analyzing a set of keywords from previous items preferred by the user, and from this information extract the user's preferences and interests.\newline 
 These specific preferences will then be compared with items contained in the system. The result returned from the system is a mathematical indication of the relevance these items will represent to the user. As an example, this could help filter search result for webpages. If a resulting webpage has a negative score in comparison to the users interests, it will simply not be added to the list of recommendations.
-\todo{could be rewritten with the new perception of content-based}
+\todo{could be rewritten with the new perception of content-based - Done, bedre?}
 
 \subsection{The architecture and modules of the system}
 In this section we will describe the different components which represents the content-based recommender system. In the previous section we explained that it produces the recommendations by creating the user profile containing the user's preferences, then comparing these preferences with the items contained in the system, and finally choosing and presenting the recommended items to the user. \newline
