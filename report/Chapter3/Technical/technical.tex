@@ -5,7 +5,7 @@
 
 % 0.5 page
 
-\todo{beskriv approach for at embedde values i et system: definer stakeholders, definer pros/cons for stakeholders i forhold til hver value}
+\todo{beskriv approach for at embedde values i et system: definer stakeholders, definer pros/cons for stakeholders, definer values ud far pros/cons}
 
 \subsection{Introduction}
 As a part of the VSD framework, a technical part of the recommender system is required. In this chapter of the report, a focus will therefore be on the actual domain where the system is to be implemented, the technological choices taken for the systems. This will be done with the chosen values from the conceptual section in mind and grounded in these values. 
@@ -201,6 +201,8 @@ In our current suggested system we are ignoring the case where students have bee
 Our initial thought regarding keywords for the courses was to get one or more well respected persons, whom in some way were related to the project, to sit down and choose these. Our idea was to make the leaders of the different lines of study at ITU create a list full of all the keywords they found relevant in relation to the fields of study. During our discussion we discovered that this approach could possibly lead to a biased keyword base. The reason for this is that the leaders, most likely unintentionally, all would believe that keywords related to their study were the most important. This could be solved by allowing all keywords to be added to the list, though this would raise another possible predicament, since one line of study might wish to include several keywords while another only have a few, which could tip the balance of the recommendations to one side. 
 In order to fully get rid of these issues with pre-existing biases in the keywords, we decided that a person with no direct relation to the system should create a list of words that were NOT to be included in the search. This would be everyday words that would have no effect on the recommendation process. By using this approach we would ensure that the keywords are internal, chosen by the system itself in relation to the course content, while still keeping the runtime down and the biases away.
 This does call for a high demand on precise notations of the course description for every course in order to be effective and ensure that our values are contained within the system. We do believe that this will be easier to maintain than keeping the keywords updated, since the leaders might change job positions and new ones have a different idea of which keywords to include, while the course descriptions will follow the actual content of the courses, which the recommendations are based on. 
+
+\todo{I forhold til bias som en value, giv en indikation på, at ved ikke at implementere brugerinteraktion i systemet, har vi taget et skridt mod at der ikke opstår emergent bias i vores system}
 
 % subsection value_considerations (end)
 \subsubsection{Future improvements} % (fold)

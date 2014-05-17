@@ -2,10 +2,10 @@
 \section{Collaborative Recommendations}
 \label{sec:collaborative}
 The main idea of this approach for recommendations, is to base the recommendations of items on similar users or similar items.\newline
-This method of recommending is one of the most widely spread, as it is used both at Amazon, Netflix and similar high-value companies \citep{AmazonReommendations} \todo{check source} \newline
-In this section, the different implementation techniques of CF recommender systems will be described and a list of pro's and cons, be given towards the end. We will distinguish between what is known as user-based and item-based recommendations \todo{Kilde: Recommender Systems, An Introduction}. But before going into these descriptions, a short section for the common features will be explained\newline
+This method of recommending is one of the most widely spread, as it is used both at Amazon, Netflix and similar high-value companies \citep{AmazonRecommendations}\newline
+In this section, the different implementation techniques of CF recommender systems will be described and a list of pro's and cons, be given towards the end. We will distinguish between what is known as user-based and item-based recommendations \citep{IntroductionRecommenderSystems}. But before going into these descriptions, a short section for the common features will be explained\newline
 For both types of recommendations the basic problem can be formulated like this: For any given user and non-rated item pair, try to estimate the rating the user will give, for this item.\newline
-The most common approach is therefore to define a user-item matrix as seen in the table below \todo{make sure text fits with table - and figure out if we are to reference the book the illustration were found}
+The most common approach is therefore to define a user-item matrix as seen in the table below.
 
 
 \begin{table}[H]
@@ -25,7 +25,7 @@ The most common approach is therefore to define a user-item matrix as seen in th
 
 
 
-\subsection{user-user based recommendations} % (fold)
+\subsection{User-user based recommendations} % (fold)
 \label{sub:user_user_based_recommendations}
 The approach described here are recommending on the basis of what is known as peer-users (also called neighbors). This means users that have similar preferences in the past as the user the systems is trying to recommend items to. The idea is, for item \(n\), which a user called \(Alice\) have not yet rated, find peer-users that have rated item \(n\) and based on this, compute the rating for item \(n\) for \(Alice\). This means that the job of the RS is to: 1) find peer-users with similar taste to \(Alice\) and 2) take the rating for item \(n\) from the peer-users and based on this, predict the rating for item \(n\) for \(Alice\).\newline
 To illustrate this, we can return to our rating matrix in matrix \(R\). Here \(Alice\) have not rated item 5 and the task of the RS is then to predict the rating for item 5, based on the ratings of this item from peer-users.. Most commonly the peer-users are found by using the Pearson correlation coefficient\citep{IntroductionRecommenderSystems}, which calculates the similarity between users, and will be further described below.
@@ -52,11 +52,11 @@ which produces the following: \newline
 \]
 Based on these predictions, we are now able to fill out the rating matrix for \(Alice\) and make a list of top recommendations. The list of recommendations is a product of both computed ratings, using the above method, and actual ratings from \(Alice\) \newline
 
-The above presentation of a recommender systems is of course a very small example and in real world applications, the case of recommending is not as straight-forward as the method described here. The example just holds 5 users and 5 items, whereas real-world applications often contains tens of thousands or even millions of both items and users, which was the case for the Netflix Prize, which contained 480,000, 18,000 movie titles \citep{NetflixPrize}. As we will later present, a problem about data sparsity with rating for items, is also a very present and problematic issue for recommendations systems. \todo{Problems with scalability}\newline
-This concludes the describtion of the user-user based recommendation technique.
+The above presentation of a recommender systems is of course a very small example and in real world applications, the case of recommending is not as straight-forward as the method described here. The example just holds 5 users and 5 items, whereas real-world applications often contains tens of thousands or even millions of both items and users, which was the case for the Netflix Prize, which contained 480,000, 18,000 movie titles \citep{NetflixPrize}. As we will later present, a problem about data sparsity with rating of items, is also a very present and problematic issue for recommendation systems.\newline
+This concludes the description of the user-user based recommendation technique.
 % subsection user_user_based_recommendations (end) 
 
-\subsection{item-based recommendations} % (fold)
+\subsection{Item-based recommendations} % (fold)
 \label{sub:item_based_recommendations}
 Another technique of collaborative recommendations, called item-based, are in certain areas very similar to the user-based technique described above. The main idea of this approach is to calculate the similarity between items, instead of users, based on ratings for the items. If we want to compute the rating for \(Item5\) and we return to our matrix in \ref{tableofratings}, we can see that the ratings given for \(Item5\), is close to the ratings given for both \(Item1\) and \(Item4\). Because of this similarity, we can conclude the following: Since \(Alice\) gave a rating of 5 to \(Item1\) and gave a rating of 4 to \(Item4\), an item-based recommender system will compute the average of these similar items ratings and give item5 a rating between 4 and 5.
 
@@ -67,9 +67,7 @@ By making a vector from each of the items, based on their ratings, this method u
 \[
 	sim(\vec{a}, \vec{b}) = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}| * |\vec{b}| }
 \]
-
-\todo{explanation of the formula}
-
+\newline
 The cosine similarity values goes from -1, trough 0 and to 1, where 1 indicates a strong similarity between the two compared items, just like the Pearson method, as indicated on the picture below:
 
 \begin{figure}[H]
