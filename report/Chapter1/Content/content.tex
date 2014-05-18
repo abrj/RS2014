@@ -1,14 +1,12 @@
 %!TEX root = ../../report.tex
 \section{Content-based Recommender Systems}
 \label{sec:content}
-
-\subsection{The functionality of a content-based RS}
 The overall reason to implement a Content-based recommender system is basically the same as for other recommender systems; to deliver a list of recommendations that statistically will be seen as valuable to the user. Where it differentiates itself from others is in the way these recommendations are generated.\newline 
 
 A content-based recommender system will try to recommend items to the user similar to items that the user has either bought or somehow interacted with in the past. In other words, the way the content-based recommender system approaches the recommendation process is by analyzing a set of keywords from previous items preferred by the user, and from this information extract the user's preferences and interests.\newline 
 These specific preferences will then be compared with items contained in the system. The result returned from the system is a mathematical indication of the relevance these items will represent to the user. As an example, this could help filter search result for webpages. If a resulting webpage has a negative score in comparison to the users interests, it will simply not be added to the list of recommendations.
 
-\subsection{The architecture and modules of the system}
+\subsection{The Components}
 In this section we will describe the different components which represents the content-based recommender system. In the previous section we explained that it produces the recommendations by creating the user profile containing the user's preferences, then comparing these preferences with the items contained in the system, and finally choosing and presenting the recommended items to the user. \newline
 There are three main steps used in this recommendation process, which are described as follows; content analysis, profile learning, and filtering. Figure \ref{contentdescription} illustrates the process and can be used as a reference to better comprehend some of the steps which are further explained below.
 
@@ -42,7 +40,7 @@ All of the above mentioned actions will help the Profile Learner to create a mor
 In order for the recommender system to create a user profile, it is needed by the system to first create something called a training set consisting of the current items in the system. This training set is then used by the Profile Learner to match up against the user's preferences in order to build a solid foundation for the user profile. The training set of recommendations is updated on a regular basis in order to keep the recommendations as close to the users current preferences as possible. This is of particular importance since a users preferences are most likely to be in a dynamic state of change over time. Future items which is added to the system will be matched against the user item preferences via the Filtering Component and, if there is a match, these items will be added to the training set and shown as recommendations to the user. \\
 In the next section we will discuss how the similarity of items in relation to user preferences are calculated.
 
-\subsection{Keyword-based Vector Space Model}
+\subsection{Vector Space Model}
 The mathematical way in which most content-based recommender systems defines the relevance of an item is by the Vector Space Model(VSM), which is a spatial representation of text documents. In this model, each of the documents is represented by a vector in a \(n\)-dimensional space where \(n\) represents the number of keywords from that particular document that matches a, for the system, overall vocabulary.\newline
 When using VSM to represent the weight of keywords in documents, there are two things that are important: giving a weight of the keyword which indicates the importance of the keyword in relation to the document it is in and measure the importance of the document in relation to all the other documents contained in the system. A weighting scheme which can be used for this is TD-IDF weighting. \newline
 
