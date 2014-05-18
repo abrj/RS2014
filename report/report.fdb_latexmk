@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex report"] 1400440490 "report.aux" "report.bbl" "report" 1400441475
+["bibtex report"] 1400440490 "report.aux" "report.bbl" "report" 1400441985
   "./myplainnat.bst" 1400017644 26817 7755b7bec1af7eb815ff271e3c47ec5a ""
   "bibliography.bib" 1400331163 4248 30581bc21596025419f4875aaee4b144 ""
-  "report.aux" 1400441474 22499 7d2490df801de07bab7be52bda8a7155 ""
+  "report.aux" 1400441984 22499 7d2490df801de07bab7be52bda8a7155 ""
   "report.bcf" 0 -1 0 ""
   (generated)
   "report.bbl"
   "report.blg"
-["pdflatex"] 1400441473 "report.tex" "report.pdf" "report" 1400441475
+["pdflatex"] 1400441983 "report.tex" "report.pdf" "report" 1400441985
   "/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/gettitlestring.sty" 1303254447 8237 52810bdb4db2270e717422560a104aea ""
@@ -59,8 +59,8 @@
   "/usr/local/texlive/2013/texmf-dist/tex/latex/url/url.sty" 1264379145 21932 e3a9cf32ee9b853b42be14c2f25b873c ""
   "Chapter/Values/values.tex" 0 -1 0 ""
   "Chapter1/Collaborative/collaborative.tex" 1400439533 10893 7dc308ac3999a2fd2e6cfa2892bc74ab ""
-  "Chapter1/Content/content.tex" 1400441473 18600 0cc624e1375693f173d9614ea6449882 ""
-  "Chapter1/Hybrid/hybrid.tex" 1400323246 3199 93bcb7ec9e325f7756288fa2e15c1603 ""
+  "Chapter1/Content/content.tex" 1400441781 18575 eda7f9d707c61d7a1ef9cda38606246e ""
+  "Chapter1/Hybrid/hybrid.tex" 1400441983 3206 7396e99fdae49702a4e3f64e29c67ec5 ""
   "Chapter1/Introduction/introduction.tex" 1400437985 4468 d174450eaf7fdd39767fb69e6eada3ee ""
   "Chapter1/Summary/summary.tex" 1400323246 821 1a9370ef1630048cf7782cb2d0d47536 ""
   "Chapter2/TechnologyAndValues/values.tex" 1400400449 13087 7d78d7557f2a97190878145cd9a81743 ""
@@ -76,11 +76,11 @@
   "Pictures/contentdescription.png" 1396512913 49540 ea3b72f53d0dd628c404fa58e80b3131 ""
   "Pictures/cosinesimilarity.png" 1394895805 36116 5be84646d4a8cb7179c88cc63fc4b0fe ""
   "edmaths.sty" 1394790991 7110 040f1b25344d8d1e5884cbffdf8c83b7 ""
-  "report.aux" 1400441474 22499 7d2490df801de07bab7be52bda8a7155 ""
+  "report.aux" 1400441984 22499 7d2490df801de07bab7be52bda8a7155 ""
   "report.bbl" 1400440491 2597 608845ba7c844bbb3c2b8bdb566f88fe "bibtex report"
-  "report.out" 1400441474 2836 a2367abbc9fe96c93051edd5f299e40a ""
+  "report.out" 1400441984 2836 a2367abbc9fe96c93051edd5f299e40a ""
   "report.tex" 1400400432 1735 0a6f78fcf213bb7222a1a5637a3e430e ""
-  "report.toc" 1400441474 4276 17900c7109bd88e717dafe3c6b94523d ""
+  "report.toc" 1400441984 4276 17900c7109bd88e717dafe3c6b94523d ""
   (generated)
   "*.aux"
   "Part1/Collaborative/collaborative.aux"
