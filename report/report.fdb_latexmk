@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex report"] 1400338068 "report.aux" "report.bbl" "report" 1400338070
+["bibtex report"] 1400398685 "report.aux" "report.bbl" "report" 1400398687
   "./myplainnat.bst" 1400017644 26817 7755b7bec1af7eb815ff271e3c47ec5a ""
   "bibliography.bib" 1400331163 4248 30581bc21596025419f4875aaee4b144 ""
-  "report.aux" 1400338070 21008 50c0c71240e649b9a695265a076e3033 ""
+  "report.aux" 1400398687 19678 b4ff962cb3a4ed7ec2c15b26b2727a88 ""
   "report.bcf" 0 -1 0 ""
   (generated)
   "report.bbl"
   "report.blg"
-["pdflatex"] 1400338069 "report.tex" "report.pdf" "report" 1400338070
+["pdflatex"] 1400398686 "report.tex" "report.pdf" "report" 1400398687
   "/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/gettitlestring.sty" 1303254447 8237 52810bdb4db2270e717422560a104aea ""
@@ -64,21 +64,20 @@
   "Chapter1/Introduction/introduction.tex" 1400323246 4544 3292b714cf9195dc93405b7fc7cd73b4 ""
   "Chapter1/Summary/summary.tex" 1400323246 821 1a9370ef1630048cf7782cb2d0d47536 ""
   "Chapter2/TechnologyAndValues/values.tex" 1400331853 13092 a96647759c84c161de3a88acf59166cd ""
-  "Chapter3/Conceptual/conceptual.tex" 1400333287 6761 a80d05cee5ce754a53c0ed85b15b4964 ""
+  "Chapter3/Conceptual/conceptual.tex" 1400397947 10180 ff5e04a18c8df1b4beb1e52d52465d0e ""
   "Chapter3/Empirical/empirical.tex" 1400323246 1963 c8d5c0a275ae341d0be5fc200896320b ""
-  "Chapter3/Technical/technical.tex" 1400323246 28218 bd73be5dae00b3266896f21079201c31 ""
+  "Chapter3/Technical/technical.tex" 1400398680 25994 378d987e0207e0f05fcc856a9b6fbf1b ""
   "Chapter3/Values/biases.tex" 1400253240 6782 4c6547d328905a5ed62f429ee11dba91 ""
-  "Chapter3/introduction.tex" 1400323246 2791 235619a06833a6f389cbb5e60c77baa0 ""
+  "Chapter3/introduction.tex" 1400398250 5131 2722a30a79003ff29866b1b37186a5fa ""
   "Pictures/Architecture-Diagram.jpg" 1399640784 73441 81a6f4b3dbf45f28992549b07de4f86b ""
-  "Pictures/ER-Diagram.jpg" 1399393748 132132 6734623724221d63fdf9d4296a7bc69e ""
   "Pictures/contentdescription.png" 1396512913 49540 ea3b72f53d0dd628c404fa58e80b3131 ""
   "Pictures/cosinesimilarity.png" 1394895805 36116 5be84646d4a8cb7179c88cc63fc4b0fe ""
   "edmaths.sty" 1394790991 7110 040f1b25344d8d1e5884cbffdf8c83b7 ""
-  "report.aux" 1400338070 21008 50c0c71240e649b9a695265a076e3033 ""
-  "report.bbl" 1400338069 2597 608845ba7c844bbb3c2b8bdb566f88fe "bibtex report"
-  "report.out" 1400338070 2912 5ff5112641b9d4fd848839fba866b00b ""
+  "report.aux" 1400398687 19678 b4ff962cb3a4ed7ec2c15b26b2727a88 ""
+  "report.bbl" 1400398686 2597 608845ba7c844bbb3c2b8bdb566f88fe "bibtex report"
+  "report.out" 1400398687 2722 a7d3e09eaa477250801a7ae0af8ba0fb ""
   "report.tex" 1400338062 1528 21bd4a1c264d2f4574572a18d449c5af ""
-  "report.toc" 1400338070 4697 fdca29632fd015fbcc333a0f19389e45 ""
+  "report.toc" 1400398687 4127 cd4c85edddcbfe786bc85fa5292ae8c0 ""
   (generated)
   "*.aux"
   "Part1/Collaborative/collaborative.aux"
