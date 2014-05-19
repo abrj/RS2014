@@ -1,29 +1,15 @@
 %!TEX root = ../../report.tex
-
- 
 \section{Technical}
 
 % 0.5 page
 
 \todo{beskriv approach for at embedde values i et system: definer stakeholders, definer pros/cons for stakeholders, definer values ud far pros/cons}
 
-\subsection{Introduction}
 As a part of the VSD framework, a technical part of the recommender system is required. In this chapter of the report, a focus will therefore be on the actual domain where the system is to be implemented, the technological choices taken for the systems. This will be done with the chosen values from the conceptual section in mind and grounded in these values. 
 The section are divided in to two parts. The first will be an analysis, whereas the second will focus upon the implementation and challenges for doing so. 
 A recommender system can be seen in many forms and be found many places, as described in chapter \ref{chap:chapter1}. For this report, a recommender system for courses at the IT University, will be conceived. The reason for this, is that all full-time students are faced with one or more options for non-mandatory courses throughout their education. This can, for some students, be hard to do, because of the many courses available as well as the lack of transparency of the content for each of these courses.\\
 
 The intuition for the system can be divided in to three basic step. The first is some sort of data extraction from the systems at ITU, that holds the data needed to make a recommendation. The second step is to prioritize this data and select only the relevant. The third step is to process the selected data and transform this into some sort of structure holding students and courses and thereby constructing the recommendations for every student.
-
-
-% 0.5-1 page
-\subsection{Domain Description}
-In order to design the system it is needed to explore the domain in which the system needs to be designed. To get an overview of this, this section will be used to explain the different terms which is used and explanation of what kind of educations the university offers students. Some works used here will be domain specific, but will be explained in the Glossary \ref{glossary}.
-To start at the highest level, the educations is divided into 3 sections: Bachelor, Master and Diploma. Both the Bachelor and Master are full time studies, whereas the Diploma is targeted for people already working and wants to complement or upgrade their education. There is three types of bachelors tracks: Global Business Informatics (BGBI), Software Development (BSWU) and Digital Media and Design (BDMD). The Masters are divided into: Digital Innovation \& Management, Digital Design \& Communication, Software Development and Technology and lastly Games. Under the Masters different tracks (also called specializations) can be chosen, but these will most likely not be taken into considerations in the system, and therefore not explained here. The Diploma is designed to be a part time education, with single elective courses. Also here, it is possible to choose tracks, but like the Masters, will these not be explained. 
-A bachelor education consists of 180 ECTS points, a Master on 120 ECTS points and Diploma 60 ECTS points. Since the Bachelors consists of many mandatory courses, not a lot of ECTS points a available for elective courses. The direct opposite is the case for the Masters. Here most of the 120 ECTS points are elective, which is the same for the Diploma. 
-The different people associated with ITU can be divided into three groups: Students, Researchers and Staff. The most interesting group is of course the students, since this in this group, the recommendations will be targeted. This group can be further divided into full- and part-time students. Most people on the Bachelors and Masters are full-time whereas a small part of Masters as well as all people on Diploma are part-time, for different reasons. 
-The three types of educations all have elective courses, but the the Masters have more 
-COURSES?
-What domain are we in? Description of special words. Explanation of the different educations/track/etc
 
 % 1-2 page
 \subsection{Design Choices}
@@ -46,18 +32,18 @@ even though the program only will run 2-3 times per year, persistent the data to
 Target group?
 Tidsplan?
 % 0.5-1 page
-\subsection{Data Modeling}
-Following the section \ref{subsec:persistent} a analysis of the data for ITU, including information about students and courses, was needed. This analysis are then devised into a model of data, which we have chosen to represent using a ER-diagram. This is useful for further discussions and improvement of the system, but can also serve as inspiration for the classes and objects needed at the programmatic abstraction layer. 
+%\subsection{Data Modeling}
+%Following the section \ref{subsec:persistent} a analysis of the data for ITU, including information about students and courses, was needed. This analysis are then devised into a model of data, which we have chosen to represent using a ER-diagram. This is useful for further discussions and improvement of the system, but can also serve as inspiration for the classes and objects needed at the programmatic abstraction layer. 
 
-\subsubsection{ER-Diagram}
-The ER-diagram following below reflects our considerations and reflections about how to represent the selected data in relational database. At the time of writing, where no real implementation has taken place, this diagram reflects the bare minimum required for the development of the system. The reason for not including the rest, is that this is best done with a agile and iterative development process, which have not been possible to engage in due to a time-constraint. It represents the results of the data selection process, which have been about prioritizing the available data from ITU in to the relevant data for the system, which have meant we have excluded some non-needed information attributes.
+%\subsubsection{ER-Diagram}
+%The ER-diagram following below reflects our considerations and reflections about how to represent the selected data in relational database. At the time of writing, where no real implementation has taken place, this diagram reflects the bare minimum required for the development of the system. The reason for not including the rest, is that this is best done with a agile and iterative development process, which have not been possible to engage in due to a time-constraint. It represents the results of the data selection process, which have been about prioritizing the available data from ITU in to the relevant data for the system, which have meant we have excluded some non-needed information attributes.
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.5]{Pictures/ER-Diagram.jpg}
-\label{ER-diagram}
-\caption{ER-Diagram}
-\end{figure}
+% \begin{figure}[H]
+% \centering
+% \includegraphics[scale=0.5]{Pictures/ER-Diagram.jpg}
+% \label{ER-diagram}
+% \caption{ER-Diagram}
+% \end{figure}
 
 % 0.5-1 page
 \subsection{Architecture Analysis}
@@ -74,17 +60,17 @@ In order to give the reader an overview of the program, this section will presen
 To the left the blackbox of ITU are displayed. This represents the data source, that will be used to produce the recommendations. The data will be all information about students and courses. The Data Processor component will receive all this data and sort it out, keeping only the relevant information. This being the information used in the ER-diagram. The data will then be split among the Content Analyzer and the Profile Learner, which will construct data structures of courses and students, as explained below. The Filtering Component will then receive these structure and output the lists of recommendations for each students. 
 
 
-% ? page
-\subsection{Glossary}
-\label{glossary}
-\begin{itemize}
-	\item[ECTS points]
-	\item[SWU]
-	\item[GBI]
-	\item[CF] Collaborative-Filtering approach
-	\item[CT] Content-based approach
-	\item[Course evaluation]
-\end{itemize}
+% % ? page
+% \subsection{Glossary}
+% \label{glossary}
+% \begin{itemize}
+% 	\item[ECTS points]
+% 	\item[SWU]
+% 	\item[GBI]
+% 	\item[CF] Collaborative-Filtering approach
+% 	\item[CT] Content-based approach
+% 	\item[Course evaluation]
+% \end{itemize}
 % 1-2 page
 \subsection{ITU Recommender System}
 So far the previous sections have described the domain and the surrounding parts of the actual system. In this section, we will go in to depth with the actual recommender system and its individual components. The responsibility as well as the input and output will be described for each components. The the order of this section follows the flow of the program and will therefore start med the Content Analyzer.
@@ -118,112 +104,81 @@ This component receive the results from the Content Analyzer and the Profile Lea
 \end{itemize}
 The output of this component will be a list of recommendations sorted after the courses who's result vector is the most similar to the vector representing each student preferences, according to the cosine similarity formula \todo{ref til cosine formula}. This list will then be shorted down to an appropriate length with courses and sent out to email to the student. 
 
-\subsubsection{Data on students}
-First step is to divide up the students into the groups where they belong, using the first five student data points.
+% \subsubsection{Data on students}
+% First step is to divide up the students into the groups where they belong, using the first five student data points.
 
-- Education
-- Track
-- Semester (Bachelor students can only choose an elective course on 4th and 5th semester) (Masters students can choose an elective course on each semester (4th is only their thesis))
-- ECTS points earned
-- Nationality
+% - Education
+% - Track
+% - Semester (Bachelor students can only choose an elective course on 4th and 5th semester) (Masters students can choose an elective course on each semester (4th is only their thesis))
+% - ECTS points earned
+% - Nationality
 
-Only when the students have been divided up into groups is where the recommender system will go to work. By analyzing the next student data points the RS will recommend elective courses to the students in question.
+% Only when the students have been divided up into groups is where the recommender system will go to work. By analyzing the next student data points the RS will recommend elective courses to the students in question.
 
-(which courses has the student already had, (DO NOT TAKE COURSE AND EXAM DATES INTO CONSIDERATION (AMAZON DOES NOT DECIDE WHETHER SOMETHING IS TOO EXPENSIVE FOR ME OR WHETHER I NEED THAT, THAT IS UP TO THE INDIVIDUAL TO DECIDE, THE SAME APPLIES HERE)))
+% (which courses has the student already had, (DO NOT TAKE COURSE AND EXAM DATES INTO CONSIDERATION (AMAZON DOES NOT DECIDE WHETHER SOMETHING IS TOO EXPENSIVE FOR ME OR WHETHER I NEED THAT, THAT IS UP TO THE INDIVIDUAL TO DECIDE, THE SAME APPLIES HERE)))
 
-- Grades (only in relation to elective courses?)
-- Previous grades (all courses are available to all students that meets the formal requirements) (just because you get a low grade on a previous course does not necessarily makes that person less interested in a course where that previous course is a pre-requisite)
-- Previous courses (mandatory) and projects
-- Previous elective courses (could be a sign of interest)
-- Age (when you have been accepted to ITU you are in and can freely choose which courses you wish to attend no matter of age - we do not want to implement any bias into the system)
-- Current courses (to make sure that the recommended elective course is not time wise placed on top of on of the mandatory courses)
+% - Grades (only in relation to elective courses?)
+% - Previous grades (all courses are available to all students that meets the formal requirements) (just because you get a low grade on a previous course does not necessarily makes that person less interested in a course where that previous course is a pre-requisite)
+% - Previous courses (mandatory) and projects
+% - Previous elective courses (could be a sign of interest)
+% - Age (when you have been accepted to ITU you are in and can freely choose which courses you wish to attend no matter of age - we do not want to implement any bias into the system)
+% - Current courses (to make sure that the recommended elective course is not time wise placed on top of on of the mandatory courses)
 
-The last two student data point serves as contact information (name is also used to refer to the above mentioned data points).
+% The last two student data point serves as contact information (name is also used to refer to the above mentioned data points).
  
-- Name
-- Mail
-- 
+% - Name
+% - Mail
+% - 
 
-\subsubsection{Course information}
+% \subsubsection{Course information}
 
-- Name
-- ECTS (should be included, so a student with only 7,5 etcs available, will not be recommended courses with 15 etcs)
-- Which semester
-- Course code
-- Course language
-- Max seats
-- Current number of taken seats
-- Formal requirements (to vaguely defined in order to extract proper information)
-- Course learning goals (not important)
-- Academic content (this is here the keywords are extracted for the recommender system)
-- Mandatory activities (not important)
-- Exam forms (date and description) (the student must check if exam dates collide)
-- Literature (not important)
-- Curriculum (not important)
-- Course responsible/manager (not important)
-- Relevant for (needs to properly defined, but is useful)
-- Time and place (it is the students responsible to check if courses collide)
+% - Name
+% - ECTS (should be included, so a student with only 7,5 etcs available, will not be recommended courses with 15 etcs)
+% - Which semester
+% - Course code
+% - Course language
+% - Max seats
+% - Current number of taken seats
+% - Formal requirements (to vaguely defined in order to extract proper information)
+% - Course learning goals (not important)
+% - Academic content (this is here the keywords are extracted for the recommender system)
+% - Mandatory activities (not important)
+% - Exam forms (date and description) (the student must check if exam dates collide)
+% - Literature (not important)
+% - Curriculum (not important)
+% - Course responsible/manager (not important)
+% - Relevant for (needs to properly defined, but is useful)
+% - Time and place (it is the students responsible to check if courses collide)
 
 
 
-\subsubsection{List of Requirements}
-\begin{itemize}
-	\item The list of possible courses for each student, must NOT contain mandatory courses or courses the student already have had.
-	\item Der skelnes mellem tilmeldte og tidligere tilmeldte kurser, i forhold til bestået kurser, for at undgå at man bliver anbefalet kurser, som man er igang med på tidspunktet hvor anbefalingen falder. 
-\end{itemize}
+% \subsubsection{List of Requirements}
+% \begin{itemize}
+% 	\item The list of possible courses for each student, must NOT contain mandatory courses or courses the student already have had.
+% 	\item Der skelnes mellem tilmeldte og tidligere tilmeldte kurser, i forhold til bestået kurser, for at undgå at man bliver anbefalet kurser, som man er igang med på tidspunktet hvor anbefalingen falder. 
+% \end{itemize}
   
 
-\subsubsection{Recommender system output}
+% \subsubsection{Recommender system output}
 
-- Max seats in recommended course
-- Current number of seats taken in recommended course
-- NOTE: please check that the recommended courses are not colliding with your mandatory or other elective courses
-- 
-
-
-
-
-FIND INFORMATION THAT DESCRIBES HOW A CONTENT ANALYZER, PROFILE LEARNER AND FILTERING COMPONENT ARE 
-
-MAKE NEW DRAWING SHOWING THE INFORMATION FLOW WITHIN THE SYSTEM BOTH FOR CONTENT-BASED AND COLLABORATIVE
+% - Max seats in recommended course
+% - Current number of seats taken in recommended course
+% - NOTE: please check that the recommended courses are not colliding with your mandatory or other elective courses
+% - 
 
 
 
-IF COLLABORATIVE BASED (ALWAYS RATING BASED): USER-USER OR ITEM-ITEM
 
-It will be a choice between what the course contain (can't really be shown from the users ratings of the course, since two courses can be completely different in regard to content, but have the same overall ratings) and how popular the course is (can be shown by the ratings, but will be a problem with new courses). Only about 40 percent of students are rating their courses via the course evaluation.
+% FIND INFORMATION THAT DESCRIBES HOW A CONTENT ANALYZER, PROFILE LEARNER AND FILTERING COMPONENT ARE 
 
-\subsubsection{Value Considerations} % (fold)
-\label{sub:value_considerations}
-List of keywords vs list of non-keywords\\
-In our current suggested system we are ignoring the case where students have been previously signed up for a course, but failed it. The system will still see this course as attended by the student, and will therefore remove it from the list of possible recommendations. This will in some sense make the system a bit biased, since we are not taking these courses into consideration. On the other hand, we also feel that a student who has attended a course at an earlier date, will be in a much better position to decide whether or not this course will be a future priority, than any current system will be able to.
-
-Our initial thought regarding keywords for the courses was to get one or more well respected persons, whom in some way were related to the project, to sit down and choose these. Our idea was to make the leaders of the different lines of study at ITU create a list full of all the keywords they found relevant in relation to the fields of study. During our discussion we discovered that this approach could possibly lead to a biased keyword base. The reason for this is that the leaders, most likely unintentionally, all would believe that keywords related to their study were the most important. This could be solved by allowing all keywords to be added to the list, though this would raise another possible predicament, since one line of study might wish to include several keywords while another only have a few, which could tip the balance of the recommendations to one side. 
-In order to fully get rid of these issues with pre-existing biases in the keywords, we decided that a person with no direct relation to the system should create a list of words that were NOT to be included in the search. This would be everyday words that would have no effect on the recommendation process. By using this approach we would ensure that the keywords are internal, chosen by the system itself in relation to the course content, while still keeping the runtime down and the biases away.
-This does call for a high demand on precise notations of the course description for every course in order to be effective and ensure that our values are contained within the system. We do believe that this will be easier to maintain than keeping the keywords updated, since the leaders might change job positions and new ones have a different idea of which keywords to include, while the course descriptions will follow the actual content of the courses, which the recommendations are based on. 
-
-\todo{I forhold til bias som en value, giv en indikation p�, at ved ikke at implementere brugerinteraktion i systemet, har vi taget et skridt mod at der ikke opst�r emergent bias i vores system}
-
-% subsection value_considerations (end)
-\subsubsection{Future improvements} % (fold)
-\label{sub:future_improvements}
-
-% subsection future_improvements (end)
-
-\subsection{End of chapter3} % (fold)
-\label{sub:end_of_chapter3}
-
-% subsection end_of_chapter3 (end)
-\subsection{Discussion}
-We know that in order to make considerate elective course recommendations for the students, the system will need some information or feedback on the users. The only current feedback available is from the students previous selected courses, which can help the system to give an indication of interests, though it is not a lot of information to build a thorough recommendation on when the data on the students elective courses are sparse. The lack of feedback from users is in general a problem for many recommender systems, being both ratings and content-feedback. In the cases where the student does not have any previous elective courses for the system to use in its calculations, we will in our approach cross reference the students line of study with the courses relevant for this specific line, and from here give some random recommendations. A future addition to the system could be to create a solution which take the students line of study into consideration. This could be done by cross referencing line of study with chosen elective courses from previous students, and hence give an indication of which recommendations might be relevant and useful for the individual students line of study. We acknowledge that this approach will give the system a slightly biased edge in relation to new courses which have never been previously selected, and therefore will not be included in these initial recommendations, hence we encourage future developers to seek out a solution for this as well, in the process of developing the system.\\
- 
-Using the VSD framework and finding values have been a fun and challenging experience. We started out thinking that it would be a somewhat straightforward linear process, but as it turned out it became more of an iterative approach. We started out like the framework itself suggested, by seeking to identify the relevant values for our project and bring them into the design process. However, this proved to be harder to do than we initially expected. Instead we found ourselves narrowing the list of proposed values from the framework, removing the values we did not feel had an inherent connection to our project. We did this without making any final selections on which of the remaining values to embed. We then continued our approach to design the system, and while doing this we kept the idea of 'value considerations in mind and noted whenever we were faced with a decision which could possibly affect the values in the system. \\
-We believe that it is quite possible to develop a fully functional system without considering using the VSD framework for embedding the values into the system. An alternative to this developing approach could be to simply think of which values to implement in the system, in some cases maybe given in advance by the systems stakeholders. We do feel, however, that the fact that we had a variety of initial values helped us along in the process of both finding the values we felt was important to our system and also to keep one focused on the aspect of embedding values into the system in general.
-
-We do not know the runtime of the system as it is proposed at this point, which will need to be tested when the system has been built. There is a chance when we are working with comparing several keywords (dimensions), that the time to calculate all the data will reach a critical threshold in relation to the number of dimensions.  We have done some research in order to seek out a solution in case this would become an apparent future issue to the system. A possible solution that we found is Locality Sensitive Hashing (LSH) \todo{REFERENCE TO ARTICLE FROM MIKKEL}. This works by "chopping" up the entire keyword space into small bits and assigning each of these with a hash value. It will then reduce the   comparison time by checking these hashed values with each other and hence giving an indication of similarity. We feel that this could be a solid alternative to the cosine similarity comparison method to give the system better speed at run time, in case the threshold is reached and this is getting too slow. According to the LSH study, the threshold for when it is most beneficial to switch is when the system has about 20 dimensions to compare at once.
+% MAKE NEW DRAWING SHOWING THE INFORMATION FLOW WITHIN THE SYSTEM BOTH FOR CONTENT-BASED AND COLLABORATIVE
 
 
-\todo{TALK ABOUT USING REGEX TO GO THROUGH TEXT, OR WAIT WITH THAT UNTIL ITU PROJECT IN CHAPTER 3!?!?} 
+
+% IF COLLABORATIVE BASED (ALWAYS RATING BASED): USER-USER OR ITEM-ITEM
+
+% It will be a choice between what the course contain (can't really be shown from the users ratings of the course, since two courses can be completely different in regard to content, but have the same overall ratings) and how popular the course is (can be shown by the ratings, but will be a problem with new courses). Only about 40 percent of students are rating their courses via the course evaluation.
+
 
 
 
