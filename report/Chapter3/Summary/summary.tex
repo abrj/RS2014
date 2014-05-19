@@ -1,0 +1,44 @@
+%!TEX root = ../../report.tex
+
+\section{Summary}
+In this chapter have we described one possible way of designing a recommender system for the courses at ITU. The chapter describes the outcome of the three phases of the VSD framework.\newline
+This section will reflect upon some value considerations and describe some possibilities for future improvements of the system. 
+
+\subsection{Value Considerations} % (fold)
+\label{sub:value_considerations}
+\subsubsection{The Bias perspective}
+As mentioned in section \ref{subsec:bias}, we believe that freedom from bias is a value that represents an ideal that one should strive to embed, but also that it is hard to be completely 'bias free'. This section will outline one example of each of the three different types of biases and how we have tried to limit their implications in the ITU system.\newline
+
+\textbf{The selected courses}\newline
+In our current suggested system we are ignoring the case where students have been previously signed up for a course, but failed it. The system will still see this course as attended by the student, and the course will therefore be sorted out, before the recommendations are produced.\newline
+This will represent a technical bias, since the system is not taking these courses into consideration, even thought they are still possible to attend by the student. The reason for deciding this, is that we feel that a student who has attended a course earlier, will be in a much better position to decide whether or not this course will be a priority again, than our current system will be able to.\newline
+
+\textbf{The list of keywords}\newline
+The rationale behind the list of keywords, was initially based upon the idea of getting educational leaders found at ITU to produce a list of keywords, they found to be of importance in a system like this one. However, we realized that this approach could possibly lead to a keyword base containing pre-existing biases. The reason for this is that the leaders, most likely unintentionally, all would believe that keywords related to their study were the most important.\newline
+This could be solved by allowing all keywords to be added to the list, though this would raise another possible predicament, since one line of study might wish to include several keywords while another only a few, which could tip the balance of the recommendations to one side.
+
+In order to limit these issues with pre-existing biases in the keywords, we decided that a person with no direct relation to the system should create a list of words that were not to be included in the search. By using this approach we ensures that all keywords are matched, except the ones found in the non-keyword list, thereby making the system less biased.
+This makes the job of maintaining the system easier, since it only relies upon the non-keyword list and course descriptions.\newline
+However, if a teacher obtains some knowledge about this recommendation process, he or she is able to edit the course description in a way, that can alter the analysis of keywords, and thereby the outcome of recommendations.\newline
+
+\textbf{The user interaction}\newline
+In a typical recommender system, users a able to create profiles as well as provide explicit feedback for items. Users of the ITU system does not have these options, since no user interface are provided. They only receive an email with a list of recommendations. This have been chosen in order to limit the possibilities of a emergent bias in the system, even though this type of bias can be hard to foresee in any type of system.
+
+
+\subsubsection{Diversity and Similarity}
+In the start of this project we imagined a recommender system based upon diversity, opposite to typical recommender systems, which are designed upon similarity.\newline
+We discovered that this approach is very much related to the context of use, and in the context of ITU it was not applicable with a recommender system built upon diversity. The reason being that similarity ensures a higher level of relevance in relation to the users preferences, which we believe will be more beneficial for the students. However, we have chosen to design the system in a way where a bit of diversity have been implemented as well, in the form of a limited number of randomized recommendations. In order to keep a level of relevance in these recommendations for the student, they are chosen from a list of courses, where the tag 'relevant for' equals the students line of study.
+
+% subsection end_of_chapter3 (end)
+\subsection{Future improvements}
+\subsubsection*{Feedback from users}
+We know that in order to make considerate elective course recommendations for the students, the system will need some information or feedback on the users. The only current feedback available is from the students previous selected courses, which can help the system to give an indication of interests, though it is not a lot of information to build a thorough recommendation on when the data on the students elective courses are sparse. The lack of feedback from users is in general a problem for many recommender systems, being both ratings and content-feedback. In the cases where the student does not have any previous elective courses for the system to use in its calculations, we will in our approach cross reference the students line of study with the courses relevant for this specific line, and from here give some random recommendations. A future addition to the system could be to create a solution which take the students line of study into consideration. This could be done by cross referencing line of study with chosen elective courses from previous students, and hence give an indication of which recommendations might be relevant and useful for the individual students line of study. We acknowledge that this approach will give the system a slightly biased edge in relation to new courses which have never been previously selected, and therefore will not be included in these initial recommendations, hence we encourage future developers to seek out a solution for this as well, in the process of developing the system.\newline
+
+\subsubsection*{Seat Reservation}
+-How would the system be designed if it were to offer seats in courses instead of 'just recommending' courses to users? Or choosing/forcing courses for users, if they do not take courses by them self \newline
+If the system were doing seat reservations as well as recommendations of courses, the time of deliver would matter a great deal; If the students didn't get the output from the system delivered a the same time, the students being first on the mail list, would be favored over those last on the list. This would represent a technical bias. 
+
+
+\todo{finish this section}
+%We do not know the runtime of the system as it is proposed at this point, which will need to be tested when the system has been built. There is a chance when we are working with comparing several keywords (dimensions), that the time to calculate all the data will reach a critical threshold in relation to the number of dimensions.  We have done some research in order to seek out a solution in case this would become an apparent future issue to the system. A possible solution that we found is Locality Sensitive Hashing (LSH) \todo{REFERENCE TO ARTICLE FROM MIKKEL}. This works by "chopping" up the entire keyword space into small bits and assigning each of these with a hash value. It will then reduce the   comparison time by checking these hashed values with each other and hence giving an indication of similarity. We feel that this could be a solid alternative to the cosine similarity comparison method to give the system better speed at run time, in case the threshold is reached and this is getting too slow. According to the LSH study, the threshold for when it is most beneficial to switch is when the system has about 20 dimensions to compare at once.
+
