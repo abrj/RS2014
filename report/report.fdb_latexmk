@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex report"] 1400440490 "report.aux" "report.bbl" "report" 1400442125
+["bibtex report"] 1400443453 "report.aux" "report.bbl" "report" 1400443455
   "./myplainnat.bst" 1400017644 26817 7755b7bec1af7eb815ff271e3c47ec5a ""
   "bibliography.bib" 1400331163 4248 30581bc21596025419f4875aaee4b144 ""
-  "report.aux" 1400442125 22499 7d2490df801de07bab7be52bda8a7155 ""
+  "report.aux" 1400443455 21820 47bba0f1b1e3fa38acd26e73f0499e5b ""
   "report.bcf" 0 -1 0 ""
   (generated)
   "report.bbl"
   "report.blg"
-["pdflatex"] 1400442124 "report.tex" "report.pdf" "report" 1400442125
+["pdflatex"] 1400443454 "report.tex" "report.pdf" "report" 1400443455
   "/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/gettitlestring.sty" 1303254447 8237 52810bdb4db2270e717422560a104aea ""
@@ -57,7 +57,6 @@
   "/usr/local/texlive/2013/texmf-dist/tex/latex/setspace/setspace.sty" 1324344192 22913 a27d7908fc6f0385466454a966a316eb ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/tools/calc.sty" 1254151720 10075 18f0ccff816231e9905cd2b3a482a622 ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/url/url.sty" 1264379145 21932 e3a9cf32ee9b853b42be14c2f25b873c ""
-  "Chapter/Values/values.tex" 0 -1 0 ""
   "Chapter1/Collaborative/collaborative.tex" 1400439533 10893 7dc308ac3999a2fd2e6cfa2892bc74ab ""
   "Chapter1/Content/content.tex" 1400441781 18575 eda7f9d707c61d7a1ef9cda38606246e ""
   "Chapter1/Hybrid/hybrid.tex" 1400442045 3188 d679ac0bb20298184b3c91f4e9e12fea ""
@@ -76,11 +75,11 @@
   "Pictures/contentdescription.png" 1396512913 49540 ea3b72f53d0dd628c404fa58e80b3131 ""
   "Pictures/cosinesimilarity.png" 1394895805 36116 5be84646d4a8cb7179c88cc63fc4b0fe ""
   "edmaths.sty" 1394790991 7110 040f1b25344d8d1e5884cbffdf8c83b7 ""
-  "report.aux" 1400442125 22499 7d2490df801de07bab7be52bda8a7155 ""
-  "report.bbl" 1400440491 2597 608845ba7c844bbb3c2b8bdb566f88fe "bibtex report"
-  "report.out" 1400442125 2836 a2367abbc9fe96c93051edd5f299e40a ""
-  "report.tex" 1400400432 1735 0a6f78fcf213bb7222a1a5637a3e430e ""
-  "report.toc" 1400442125 4276 17900c7109bd88e717dafe3c6b94523d ""
+  "report.aux" 1400443455 21820 47bba0f1b1e3fa38acd26e73f0499e5b ""
+  "report.bbl" 1400443454 2597 608845ba7c844bbb3c2b8bdb566f88fe "bibtex report"
+  "report.out" 1400443455 2836 a2367abbc9fe96c93051edd5f299e40a ""
+  "report.tex" 1400443451 1702 e719d561f135ba45471aa0734ea955d6 ""
+  "report.toc" 1400443455 4276 17900c7109bd88e717dafe3c6b94523d ""
   (generated)
   "*.aux"
   "Part1/Collaborative/collaborative.aux"
