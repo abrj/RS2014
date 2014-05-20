@@ -8,21 +8,21 @@ This section will reflect upon some value considerations and describe some possi
 \label{sub:value_considerations}
 \subsubsection{The Bias perspective}
 \label{subsubsec:biasperspective}
-As mentioned in section \ref{subsec:bias}, we believe that freedom from bias is a value that represents an ideal that one should strive to embed into any system, but also emphasize that it is hard to be completely 'bias free'. This section will outline an example of each of the three different types of biases and how we have tried to limit their implications in the ITU system.\newline
+As mentioned in section \ref{subsec:bias}, we believe that freedom from bias is a value that represents an ideal that one should strive to embed into any system, but also emphasize that it is hard to be completely 'bias free'. This section will outline an example of each of the three different types of biases and how we have tried to limit their implications in the ITU system.
 
-\textbf{The selected courses}\newline
+\paragraph{The selected courses}
 In our suggested system we are ignoring the case in which students have been previously signed up for a course, but failed that course. The system will still see this course as attended by the student, and the course will therefore be sorted out, before the recommendations are produced.\newline
-This represents a technical bias, since the system is not taking these courses into consideration, even though they are still possible to attend by the student. The reason for this decision is that we feel that a student who has attended a course earlier, is in a better position to decide whether or not this course will be a priority once more.\newline
+This represents a technical bias, since the system is not taking these courses into consideration, even though they are still possible to attend by the student. The reason for this decision is that we feel that a student who has attended a course earlier, is in a better position to decide whether or not this course will be a priority once more.
 
-\textbf{The list of keywords}\newline
+\paragraph{The list of keywords}
 The rationale behind the list of keywords, was initially based upon the idea of getting educational leaders found at ITU to produce a list of keywords, they found to be of importance in a system like this. However, we realized that this approach could possibly lead to a keyword base containing pre-existing biases. The reason for this is that the leaders, most likely unintentionally, all would believe that keywords related to their study were the most important.\newline
 This could be solved by allowing all keywords to be added to the list, though this would raise another possible predicament, since one line of study might wish to include several keywords while another only a few, which could tip the balance of the recommendations to one side.
 
 In order to limit these issues with pre-existing biases in the keyword base, we decided that a person with no direct relation to the system should create a list of words that were not to be included in the search. By using this approach we ensures that all keywords are matched, except the ones found in the non-keyword list, thereby making the system less biased.
 This also makes the job of maintaining the system easier, because it only relies upon the non-keyword list and course descriptions.\newline
-However, if a teacher obtains some knowledge about this recommendation process, he or she is able to edit the course description in a way, that can alter the analysis of keywords, and thereby the outcome of recommendations.\newline
+However, if a teacher obtains some knowledge about this recommendation process, he or she is able to edit the course description in a way, that can alter the analysis of keywords, and thereby the outcome of recommendations.
 
-\textbf{The user interaction}\newline
+\paragraph{The user interaction}
 In a typical recommender system, users a able to create profiles as well as provide explicit feedback for items. Users of the ITU system does not have these options, since no user interface are provided. They only receive an email with a list of recommendations. This have been chosen in order to limit the possibilities of a emergent bias, even though this type of bias can be hard to foresee in any type of system.
 
 
@@ -37,7 +37,7 @@ We know that in order to make considerate elective course recommendations for th
 The way of improving this, could be by using the history of former students on the same line of study. In other words, it could be done by cross referencing line of study with chosen elective courses from former students, and hence give an indication of which recommendations might be relevant and useful for the student in question.\newline
 We acknowledge that this approach will make the system slightly biased in relation to new courses which have never been previously selected, and therefore will not be included in these recommendations.
 
-\subsubsection*{Seat Reservation}
+\subsubsection*{Seat reservation}
 As of now, the ITU system recommends courses that students might find interest in. A possible addition to this system could be in the form of seat reservations.\newline 
 This would mean that instead of just recommending courses to students, the system would include the number of seats available in a certain course as well as reserving a seat in the course for which the student who were given a recommendation for. This would, in our opinion, increase the level of service provided by the system, since the list of recommendations would contain more relevant information in form of available seats and a reservation would be made for the student. This reservation should then last only a specified amount of time, to eventually free up the reserved seats.\newline
 
