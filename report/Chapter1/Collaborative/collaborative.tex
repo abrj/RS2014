@@ -23,8 +23,6 @@ The most common approach is therefore to define a user-item matrix as seen in th
 \end{center}
 \end{table}
 
-\todo{missing common features...}
-
 \subsection{User-user-based recommendations} % (fold)
 \label{sub:user_user_based_recommendations}
 The approach described here are recommending on the basis of what is known as peer-users (also called neighbors), which means users that have similar preferences as the user the system is trying to recommend items to. The idea is: For item \(n\), which \(Alice\) have not yet rated, find peer-users that have rated item \(n\) and based on this, compute the rating for item \(n\) for \(Alice\). This means that the job of the RS is to: 1) find peer-users with similar taste to \(Alice\) and 2) take the rating for item \(n\) from the peer-users and based on this, predict the rating for item \(n\) for \(Alice\).\newline
