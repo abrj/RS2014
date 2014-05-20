@@ -3,7 +3,7 @@
 
 % 0.5 page
 
-\todo{beskriv approach for at embedde values i et system: definer stakeholders, definer pros/cons for stakeholders, definer values ud far pros/cons}
+\todo{beskriv approach for at embedded values i et system: definer stakeholders, definer pros/cons for stakeholders, definer values ud far pros/cons}
 In this section, a focus will be on the actual domain where the system is to be designed and the technological choices taken for the systems. This will be done with the chosen values from the conceptual section in mind. 
 The section are divided in to two parts. The first will be an analysis, whereas the second will focus upon the implementation and challenges for doing so. 
 A recommender system can be seen in many forms and be found many places, as described in chapter \ref{chap:chapter1}. For this report, a recommender system for courses at the IT University, will be conceived. The reason for this, is that all full-time students are faced with one or more options for non-mandatory courses throughout their education. This can, for some students, be hard to do, because of the many courses available as well as the lack of transparency of the content for each of these courses.\\
@@ -56,7 +56,7 @@ In order to give the reader an overview of the program, this section will presen
 \end{figure}
 
 
-To the left the blackbox of ITU are displayed. This represents the data source, that will be used in order to produce the recommendations. The data will consists of all information about students and courses. The Data Processor component will receive all this data and sort it out, keeping only the relevant information. The data will then be split among the Content Analyzer and the Profile Learner, which will construct data structures of courses and students, as explained below. The Filtering Component will then receive these structure and output the lists of recommendations for each students. 
+To the left the black box of ITU are displayed. This represents the data source, that will be used in order to produce the recommendations. The data will consists of all information about students and courses. The Data Processor component will receive all this data and sort it out, keeping only the relevant information. The data will then be split among the Content Analyzer and the Profile Learner, which will construct data structures of courses and students, as explained below. The Filtering Component will then receive these structure and output the lists of recommendations for each students. 
 
 
 % % ? page
@@ -77,8 +77,8 @@ So far the previous sections have described the domain and the surrounding parts
 This component are responsible for analyzing all courses available at ITU and construct a vector for each of these courses. The input of courses, will come from the Data Processing \todo{Describe Data processor} and the output will be a in some sort of abstract data type, possibly like a map. The process of producing the vectors are expressed as the pseudo algorithm below:
 \begin{itemize}
 	\item Make a list of non-keywords like "this", "and", "is" or "will". (\todo{NOTE}: This will cause the system to be less biased (fairness?), compared to a human (Rune) selecting the keywords.)
-	\item Construct regex which identifies all words in the current document, except the ones from the non-keyword list
-	\item Count number of occurrences of each word found by the regex expression
+	\item Construct a string parser which identifies all words in the current document and applies a hash-function on each of these words, except the ones from the non-keyword list
+	\item Count number of occurrences of each word found by the string parser.
 	\item Repeat step 2 and 3 for all courses and construct a data structure of maps with maps. The first map has the course code as key and the value being a map containing each specific keyword and key and the number of occurrences as value. 
 	\item Use the TFIDF \todo{Ref to TDIFD formula} formula for each course, which will produce a vector space containing n-keywords dimensions, where each dimension contains a vector with a length representing the weight of this keyword, for this specific course 
 	\item Use the Cosine normalization formula for normalizing every keyword vector for all courses.
@@ -91,12 +91,12 @@ This component is used to analyze every student preferences. To do this, some fe
 	\item Retrieve all elective courses the student have been signed up for, from the Content Analyzer.
 	\item Of these courses, compute the average vector (adding the vectors together and divide by number of vectors) by projecting each of the vectors on each other. This resulting vector represents the users preferences, in relation to the elective courses the student have signed up for. 
 \end{itemize}
-This will 'collect' all the elective courses the student have been signed up for and produce a resulting vector, which expresses the students preferences towards courses he/she may like. If the student have had no elective courses, the Profile Learner will notify the Filtering Component and this will decide how to proceed. 
+This will 'collect' all the elective courses the student have been signed up for and produce a resulting vector, which expresses the students preferences towards courses he or she may like. If the student have had no elective courses, the Profile Learner will notify the Filtering Component and this will decide how to proceed. 
 
 \subsubsection{Filtering Component}
 This component receive the results from the Content Analyzer and the Profile Learner, in order to produce the list of recommendations for each student. The input needed, are the courses with an associated keyword vector and a vector representing the preferences for each student, based on previous elective courses. For new students this information will not exists. In this case a the filtering component will produce a list of random courses, but only out of those courses, that are 'relevant for'(which is a tag placed on each course) the student. When the student have had elective courses the component generates the list of recommendations like described below:
 \begin{itemize}
-	\item In the list of courses taken from the Content Analyzer, sort out all the courses the student already have been signed up for. (the student are not allowed to sign up for courses, he or she already have been signed up for - \todo{VALUE-NOTE-->}This makes the system a bit bias, since the student could have been signed up for a courses, but failed it. Cases like this, will be ignored by the system. If a student have failed a course, the student will know if he/she wants it again, which will be hard to know for the system)
+	\item In the list of courses taken from the Content Analyzer, sort out all the courses the student already have been signed up for. (the student are not allowed to sign up for courses, he or she already have been signed up for - \todo{VALUE-NOTE-->}This makes the system a bit bias, since the student could have been signed up for a courses, but failed it. Cases like this, will be ignored by the system. If a student have failed a course, the student will know if he or she wants it again, which will be hard to know for the system)
 	\item In the list of courses taken from Content Analyzer, sort out all courses that the student will have as mandatory courses in the future.
 	\item Use the resulting vector produced in step 2, to compare every course from the Content Analyzer to produce the list of recommendations.
 	\item Sort the list of recommendations, having the courses with the most similarity (closest to 1) with the resulting vector 
