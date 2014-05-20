@@ -4,10 +4,6 @@
 
 \documentclass[10pt, oneside]{report} 
 
-\title{Recommender Systems in use}
-\author{Postgraduate Student}
-\date{2009}
-
 \usepackage[phd]{edmaths}
 \usepackage{color}
 \usepackage{graphicx}
@@ -15,6 +11,7 @@
 \usepackage{newclude}
 \usepackage{hyperref}
 \usepackage{float}
+\usepackage[utf8]{inputenc}
 \restylefloat{table}
 
 %Glossary
@@ -31,8 +28,36 @@
 
 \newcommand\todo[1]{\textcolor{red}{#1}\PackageWarning{TODO:}{#1!}}
 
-\maketitle
 
+
+
+%%%%%%%%FRONTPAGE %%%%%%
+%titlepage
+\thispagestyle{empty}
+\begin{center}
+\begin{minipage}{0.75\linewidth}
+    \centering
+	%University logo
+    \includegraphics[width=0.7\linewidth]{Pictures/itulogo.jpg}
+    %\rule{0.4\linewidth}{0.15\linewidth}\par
+    \vspace{4cm}
+    \newline
+%Thesis title
+    {\uppercase{\Large The use of online Recommender Systems and how they work\par}}
+    \vspace{7cm}
+%Author's name
+    {\Large Anders B. Jørgensen and Christian Rostrup Nielsen\par}
+    \vspace{1cm}
+%Degree
+    {\Large A thesis submitted for the degree of Bachelor of Software Development\par}
+    \vspace{2cm}
+%Date
+    {\Large \today}
+\end{minipage}
+\end{center}
+\clearpage
+
+%%%%%END OF FRONTPAGE %%%%%%%%
 
 \begin{abstract}
 My abstract.
@@ -68,6 +93,5 @@ My abstract.
 \include*{Chapter4/WrapUp/wrapup}
 %\appendix
 
-\chapter{The Appendix}
 \bibliography{bibliography}
 \end{document}
