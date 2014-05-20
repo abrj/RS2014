@@ -39,8 +39,8 @@ The similarity between two users \(a\) and \(b\), given the matrix \(R\) is defi
 \]
 
 
-Doing this for each of the users and \(Alice\) will produce the similarity between \(Alice\) and each of the other users. The RS will then take the users with the highest similarity and proceed. In this example the most similar users are \(userB\) and \(userC\). It should be noted, that the formula takes into account that users tends to interpret a rating scale differently. Meaning that some users tend to give a lot of high ratings, whereas other never rates anything with a 5\citep[p. 15]{IntroductionRecommenderSystems}.\newline 
-Now that we have found two users (\(B\) and \(C\)), that are similar to \(Alice\), we are able to proceed and predict the rating for \(Item5\), which \(Alice\) have not yet rated. According to \citet[p. 16]{IntroductionRecommenderSystems} one possible way of making the prediction is based on this formula, where $\bar{r_{a}}$ is the average of \(Alice's\) ratings,  :\newline
+Doing this for each of the users and \(Alice\) will produce the similarity between \(Alice\) and each of the other users. The RS will then take the users with the highest similarity and proceed. In this example the most similar users are \(userB\) and \(userC\). It should be noted that the formula takes into account that users tends to interpret a rating scale differently. Meaning that some users tend to give a lot of high ratings, whereas other never rates anything with a 5\citep[p. 15]{IntroductionRecommenderSystems}.\newline 
+Now that we have found two users (\(B\) and \(C\)) that are similar to \(Alice\), we are able to proceed and predict the rating for \(Item5\), which \(Alice\) have not yet rated. According to \citet[p. 16]{IntroductionRecommenderSystems} one possible way of making the prediction is based on this formula, where $\bar{r_{a}}$ is the average of \(Alice's\) ratings,  :\newline
 
 \[
 	pred(a,p) = \bar{r_{a}} + \frac{\sum_{b\in N} sim(a,b) * (r_{b,p} - \bar{r_{b}})}{\sum_{b\in N} sim(a,b)}
