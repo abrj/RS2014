@@ -4,22 +4,21 @@
 % 0.5 page
 
 \todo{beskriv approach for at embedde values i et system: definer stakeholders, definer pros/cons for stakeholders, definer values ud far pros/cons}
-
-As a part of the VSD framework, a technical part of the recommender system is required. In this chapter of the report, a focus will therefore be on the actual domain where the system is to be implemented, the technological choices taken for the systems. This will be done with the chosen values from the conceptual section in mind and grounded in these values. 
+In this section, a focus will be on the actual domain where the system is to be designed and the technological choices taken for the systems. This will be done with the chosen values from the conceptual section in mind. 
 The section are divided in to two parts. The first will be an analysis, whereas the second will focus upon the implementation and challenges for doing so. 
 A recommender system can be seen in many forms and be found many places, as described in chapter \ref{chap:chapter1}. For this report, a recommender system for courses at the IT University, will be conceived. The reason for this, is that all full-time students are faced with one or more options for non-mandatory courses throughout their education. This can, for some students, be hard to do, because of the many courses available as well as the lack of transparency of the content for each of these courses.\\
 
-The intuition for the system can be divided in to three basic step. The first is some sort of data extraction from the systems at ITU, that holds the data needed to make a recommendation. The second step is to prioritize this data and select only the relevant. The third step is to process the selected data and transform this into some sort of structure holding students and courses and thereby constructing the recommendations for every student.
+The intuition for the system can be divided in to three basic step. The first is some sort of data extraction from the systems at ITU, that holds the data needed to make a recommendation. The second step is to prioritize this data and select only the relevant. The third step is to process the selected data and transform this into some sort of structure holding students and courses and thereby constructing the recommendations.
 
 % 1-2 page
 \subsection{Design Choices}
 In this section explanations of the design choices made throughout the design process will be presented as well as the 'consequences' of choosing the different solutions. 
 \subsubsection*{Collaborative or Content}
-One of the first and most important choices made for this system, is of course what kind of recommendation type of system, that should be developed. In section \ref{chap:chapter1} we outlined three different types of recommender systems: Collaborative-filtering (CF), Content-based (CT) and Hybrid approaches. As also explained in \ref{sec:collaborative} and \ref{sec:content} the two first types somewhat represents extremes and it is most common to use a hybrid of the two. To keep the system as simple as possible for a start, the approach chosen is the content-based one. The reasons for this, will be outlined below. \\
-The CF approach mostly builds upon ratings from users, which is used to either compare users with users or items with items, and then produce a list of recommendations. This makes the ratings a central and crucial part of the system. In order to implement this approach for a ITU recommender systems, these ratings could come from the course evaluation, which basically asks the students to 'rate' and comment on both the course and teacher. This could definitely be a viable solution, except that it relies a great deal upon the data from the course evaluation. Unfortunately the evaluation is only done by around 35-40\% students, which means the system will be affected of the things described as the 'Data sparsity' problem in section \ref{subsec:data_sparsity}. Even though many recommender systems suffer from this problems \todo{kilde?}, and are still implemented, the other approach have been chosen. Another problem would be the reliability of the ratings. Even though these would come from the students, and thereby represent their opinion about the courses, the would properly more reflect how popular are course are, more than the actual content of each course.\\ 
-The primary reason for choosing the CT approach is the availability of keyword for each course. Each of the courses available for the students, has an associated course description, which will be the primary source of content. In contrast to the CF approach, using the keywords from the course description, instead of ratings, would represent what the teacher thinks and imagines about the course, which is a more authentic and representative source of information. 
+One of the first and most important choices made for this system, is what kind of recommendation type of system that should be used. In section \ref{chap:chapter1} we outlined three different types of recommender systems: Collaborative-filtering (CF), Content-based (CT) and Hybrid approaches. As also explained in \ref{sec:hybrid} it is most common to use a hybrid of the two. To keep the system as simple as possible for a start, the approach chosen is the content-based one. The reasons for this, will be outlined below. \\
+The CF approach mostly builds upon ratings from users, which is used to either compare users with users or items with items, and then produce a list of recommendations. This makes the ratings a central and crucial part of the system. In order to implement this approach for a ITU recommender systems, these ratings could come from the course evaluation, which basically asks the students to 'rate' and comment on both the course and teacher. This could definitely be a viable solution, except that it relies a great deal upon the data from the course evaluation. Unfortunately the evaluation is only done by around 35-40\% of all students, which means the system will be affected of the things described as the 'Data sparsity' problem in section \ref{subsec:collaborativeAdvantages}. Even though many recommender systems suffer from this problems \todo{kilde?}, and are still used, the other approach have been chosen.\newline 
+Another problem would be the reliability of the ratings. Even though these would come from the students, and thereby represent their opinion about the courses, the would properly more reflect how popular are course are, more than the actual content of each course.\\ 
+The primary reason for choosing the CT approach is the availability of keyword for each course. Each of the courses available for the students, has an associated course description, which will be the primary source of content. In contrast to the CF approach, using the keywords from the course description, instead of ratings, would represent what the teacher thinks and imagines about the course, which is a more authentic and representative source of information in our opinion. 
 
-NOTE: A key thing to note here are the distinguishing between the popularity of a course (rating) and the content of a course (keyword).
 
 \subsubsection{Persistent or memory?}
 \label{subsec:persistent}
@@ -47,7 +46,7 @@ Tidsplan?
 
 % 0.5-1 page
 \subsection{Architecture Analysis}
-In order to give the reader an overview of the program, this section will present an overview of the components involved in the system and outline the flow of the program. The diagram below display a view of the system on a abstraction level with components: 
+In order to give the reader an overview of the program, this section will present an overview of the components involved in the system and outline the flow of the program. The diagram below displays a view of the system with components: 
 
 \begin{figure}[H]
 \centering
@@ -57,7 +56,7 @@ In order to give the reader an overview of the program, this section will presen
 \end{figure}
 
 
-To the left the blackbox of ITU are displayed. This represents the data source, that will be used to produce the recommendations. The data will be all information about students and courses. The Data Processor component will receive all this data and sort it out, keeping only the relevant information. This being the information used in the ER-diagram. The data will then be split among the Content Analyzer and the Profile Learner, which will construct data structures of courses and students, as explained below. The Filtering Component will then receive these structure and output the lists of recommendations for each students. 
+To the left the blackbox of ITU are displayed. This represents the data source, that will be used in order to produce the recommendations. The data will consists of all information about students and courses. The Data Processor component will receive all this data and sort it out, keeping only the relevant information. The data will then be split among the Content Analyzer and the Profile Learner, which will construct data structures of courses and students, as explained below. The Filtering Component will then receive these structure and output the lists of recommendations for each students. 
 
 
 % % ? page
@@ -73,14 +72,14 @@ To the left the blackbox of ITU are displayed. This represents the data source, 
 % \end{itemize}
 % 1-2 page
 \subsection{ITU Recommender System}
-So far the previous sections have described the domain and the surrounding parts of the actual system. In this section, we will go in to depth with the actual recommender system and its individual components. The responsibility as well as the input and output will be described for each components. The the order of this section follows the flow of the program and will therefore start med the Content Analyzer.
+So far the previous sections have described the domain and the surrounding parts of the actual system. In this section, we will go in to depth with the actual recommender system and its individual components. The responsibility as well as the input and output will be described for each components. The order of this section follows the flow of the program and will therefore start med the Content Analyzer.
 \subsubsection{Content analyzer}
 This component are responsible for analyzing all courses available at ITU and construct a vector for each of these courses. The input of courses, will come from the Data Processing \todo{Describe Data processor} and the output will be a in some sort of abstract data type, possibly like a map. The process of producing the vectors are expressed as the pseudo algorithm below:
 \begin{itemize}
 	\item Make a list of non-keywords like "this", "and", "is" or "will". (\todo{NOTE}: This will cause the system to be less biased (fairness?), compared to a human (Rune) selecting the keywords.)
-	\item Construct regex which identifies ALL words in the current document, except the ones from the non-keyword list
+	\item Construct regex which identifies all words in the current document, except the ones from the non-keyword list
 	\item Count number of occurrences of each word found by the regex expression
-	\item Repeat step 2 and 3 for ALL courses and construct a data structure of maps with maps. Meaning the first map has the course code as key and the value being a map containing each specific keyword and key and the number of occurrences as value. 
+	\item Repeat step 2 and 3 for all courses and construct a data structure of maps with maps. The first map has the course code as key and the value being a map containing each specific keyword and key and the number of occurrences as value. 
 	\item Use the TFIDF \todo{Ref to TDIFD formula} formula for each course, which will produce a vector space containing n-keywords dimensions, where each dimension contains a vector with a length representing the weight of this keyword, for this specific course 
 	\item Use the Cosine normalization formula for normalizing every keyword vector for all courses.
 \end{itemize}
@@ -89,15 +88,15 @@ At the end of this algorithm, each course will have an associated vector, which 
 \subsubsection{Profile Learner}
 This component is used to analyze every student preferences. To do this, some feedback or history from the students are needed. This feedback will, as explained \todo{where is it explained?}, come from the previous elective courses, that the student have been signed up for. The reason for using this information, is the fact, that we believe that this is the most significant and reliable source of information. Like the Content Analyzer, the flow of this component are expressed in form of a pseudo algorithm outlined below:
 \begin{itemize}
-	\item Find all elective courses the student have been signed up for, retrieving it from the Content Analyzer.
+	\item Retrieve all elective courses the student have been signed up for, from the Content Analyzer.
 	\item Of these courses, compute the average vector (adding the vectors together and divide by number of vectors) by projecting each of the vectors on each other. This resulting vector represents the users preferences, in relation to the elective courses the student have signed up for. 
 \end{itemize}
-This will 'collect' all the elective courses the student have been signed up for at produce a resulting vector, which expresses the students preferences towards courses he/she may like. If the student have had no elective courses, the Profile Learner will notify the Filtering Component and this will decide how to proceed. 
+This will 'collect' all the elective courses the student have been signed up for and produce a resulting vector, which expresses the students preferences towards courses he/she may like. If the student have had no elective courses, the Profile Learner will notify the Filtering Component and this will decide how to proceed. 
 
 \subsubsection{Filtering Component}
-This component receive the results from the Content Analyzer and the Profile Learner, in order to produce the list of recommendations for each student. The input needed, are the courses with a associated vectors for the keywords and a vector representing the preferences for each student, based on previous elective courses. For new students this information will not exists. In this case a it will produce a list of random courses, but only out of those courses, that are 'relevant for'(which is a tag placed on each course) the student. When the student have had elective courses the component generates the list of recommendations like described below:
+This component receive the results from the Content Analyzer and the Profile Learner, in order to produce the list of recommendations for each student. The input needed, are the courses with an associated keyword vector and a vector representing the preferences for each student, based on previous elective courses. For new students this information will not exists. In this case a the filtering component will produce a list of random courses, but only out of those courses, that are 'relevant for'(which is a tag placed on each course) the student. When the student have had elective courses the component generates the list of recommendations like described below:
 \begin{itemize}
-	\item In the list of courses taken from the Content Analyzer, sort out all the courses the student already have been signed up for. (the student are not allowed to sign up for courses, he/she already have been signed up for - \todo{VALUE-NOTE-->}This makes the system a bit bias, since the student could have been signed up for a courses, but failed it. Cases like this, will be ignored by the system. If a student have failed a course, the student will know if he/she wants it again, which will be hard to know for the system)
+	\item In the list of courses taken from the Content Analyzer, sort out all the courses the student already have been signed up for. (the student are not allowed to sign up for courses, he or she already have been signed up for - \todo{VALUE-NOTE-->}This makes the system a bit bias, since the student could have been signed up for a courses, but failed it. Cases like this, will be ignored by the system. If a student have failed a course, the student will know if he/she wants it again, which will be hard to know for the system)
 	\item In the list of courses taken from Content Analyzer, sort out all courses that the student will have as mandatory courses in the future.
 	\item Use the resulting vector produced in step 2, to compare every course from the Content Analyzer to produce the list of recommendations.
 	\item Sort the list of recommendations, having the courses with the most similarity (closest to 1) with the resulting vector 
